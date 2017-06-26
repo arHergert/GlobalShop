@@ -10,22 +10,20 @@
   	</h:head>
  	 <h:body>
    	 	
-   	 	<ui:composition template="navigation.xhtml">
-			<ui:define name="navigation">
+   	 
 				<ul>
-		   	 		<li><a href="pages/Startseite.xhtml">Startseite</a></li>
-		   	 		<li><a href="pages/Produkte.xhtml">Produkte</a></li>
-		   	 		<li><a href="pages/Warenkorb.xhtml">Warenkorb</a></li>
-		   	 		<li><a href="pages/MyAccount.xhtml">Mein Account</a></li>
+		   	 		<li><a href="pages/startseite.xhtml">Startseite</a></li>
+		   	 		<li><a href="pages/produkte.xhtml">Produkte</a></li>
+		   	 		<li><a href="pages/warenkorb.xhtml">Warenkorb</a></li>
+		   	 		<li><a href="pages/myAccount.xhtml">Mein Account</a></li>
 		   	 		<li>
-			   	 		<a href="pages/LoginLogout.xhtml">
+			   	 		<a href="pages/login.xhtml">
 			   	 			<h:outputText value="Login" rendered="#{sessionScope.userBean == null}"/>
 			   	 			<h:outputText value="Logout" rendered="#{sessionScope.userBean != null}"/>
 			   	 		</a>
 		   	 		</li>
 	   	 		</ul>
-			</ui:define>
-		</ui:composition>
+		
    	 	
  	 </h:body>
 </html>

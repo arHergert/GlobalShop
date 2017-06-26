@@ -1,5 +1,6 @@
 package webeng.businesslogic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import webeng.data.DAOFactory;
@@ -45,6 +46,9 @@ public class ProductManager {
 	}
 	
 	public List<String> getAllCategories() {
-		return getAllCategories();
+		List<String> mockupCategories = new ArrayList<>();
+		mockupCategories.add("Schuhe");
+		mockupCategories.add("Computer");
+		return mockupCategories;
 	}
 }

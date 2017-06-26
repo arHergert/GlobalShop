@@ -9,7 +9,7 @@
 		<title>GlobalShop.com</title>
   	</h:head>
  	 <h:body>
-   	 	<h:panelGroup rendered="#{sessionScope.userBean == null}">
+   	 	<h:panelGroup rendered="#{userBean == null}">
    	 		<span class='Ueberschrift'>Login</span>
    	 		<div class ='divForm'>
    	 			<h:outputText value="E-Mail"/>
@@ -21,7 +21,7 @@
    	 		<span> <a href="Registrierung.xhtml">Noch keinen Account? Hier Registrieren</a></span>
    	 	</h:panelGroup>
    	 	
-   	 	<h:panelGroup rendered="#{sessionScope.userBean != null}">
+   	 	<h:panelGroup rendered="#{userBean != null}">
    	 		<span class='Ueberschrift'>Logout</span>
    	 		<div class ='divForm'>
    	 			<h:commandButton id="logout" value="Ausloggen" action="#{userBean.logout}"/>

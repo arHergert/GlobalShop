@@ -70,5 +70,11 @@ public class ProductManagedBean implements Serializable {
 	}
 	
 	
+	public String findProducts(){
+		
+		return "../pages/produkte.xhtml";
+	}
+	
+	
 	
 }//end class ProductManagedBean

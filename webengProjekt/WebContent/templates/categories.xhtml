@@ -9,8 +9,7 @@
 		<title>GlobalShop.com</title>
   	</h:head>
  	 <h:body>
-   	 <ui:composition template="categories.xhtml">
-		<ui:define name="category">
+   	 
 	   	 	<div class='categorys'>
 	   	 		<div class='search'>
 	   	 			<h:form id='searchForm'>
@@ -21,12 +20,12 @@
 	   	 		<div class='categorys'>
 	   	 		 	<h:outputText value="Kategorien"/>
 	   	 		 	<p>
-		   	 		 	<h:link outcome="pages/Produkte.xhtml" value="Alle">
+		   	 		 	<h:link outcome="../pages/produkte.xhtml" value="Alle">
 							<f:param name="category" value="Alle"/>
 						</h:link> 
 			   	 		<h:dataTable var="category" value="#{productBean.categories}">
 							<h:column>			
-								<h:link outcome="pages/Produkte.xhtml" value="#{category}">
+								<h:link outcome="../pages/produkte.xhtml" value="#{category}">
 									<f:param name="category" value="#{category}"/>
 								</h:link> 
 							</h:column>
@@ -34,8 +33,6 @@
 					</p>
 	   	 		</div>
 	   	 	  </div>
-   	 	 </ui:define>
-	  </ui:composition>
    	 	
  	 </h:body>
 </html>
