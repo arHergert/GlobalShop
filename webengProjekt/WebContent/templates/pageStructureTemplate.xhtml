@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>GlobalShop.com</title>
+  	</h:head>
+ 	 <h:body>
+ 	 	<div id="nav" class="navbar">
+ 	 		<ul>
+	   	 		<li><a href="startseite.xhtml">Startseite</a></li>
+	   	 		<li><a href="produkte.xhtml">Produkte</a></li>
+	   	 		<li><a href="warenkorb.xhtml">Warenkorb</a></li>
+	   	 		<li><a href="myAccount.xhtml">Mein Account</a></li>
+	   	 		<li>
+		   	 		<a href="login.xhtml">
+		   	 			<h:outputText value="Login" rendered="#{loggedUser == null}"/>
+		   	 			<h:outputText value="Logout" rendered="#{loggedUser != null}"/>
+		   	 		</a>
+	   	 		</li>
+	   	 	</ul>
+ 	 	</div>
+ 	 	
+   		<div id="header" class="header">
+   			<h:graphicImage url="../resources/webseite_banner.png" alt="GlobalShop.com" width="100%"/>
+   		</div>
+   		
+   		<div id="menuebar" class="menuebar">
+   			<ui:insert name="left">Menü</ui:insert>
+   		</div>
+   		<div id="content" class="content">
+   			<ui:insert name="content">Hier ist content</ui:insert>
+   		</div>
+	 </h:body> 
+</html>

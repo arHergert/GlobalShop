@@ -9,10 +9,10 @@
 		<title>GlobalShop.com</title>
   	</h:head>
  	 <h:body>
- 	 	<ui:composition>
- 	 		<ui:define name="banner">
-		   			<h:graphicImage id="Banner" url="../resources/webseite_banner.png" alt="GlobalShop.com" width="100%"/>
-	   		</ui:define>
+ 	 	<ui:composition template="../templates/userEntryTemplate.xhtml">
+ 	 		<ui:define name="header">
+		   			<h:graphicImage url="../resources/webseite_banner.png" alt="GlobalShop.com" width="100%"/>
+   			</ui:define>
    		</ui:composition>
 	 </h:body> 
 </html>

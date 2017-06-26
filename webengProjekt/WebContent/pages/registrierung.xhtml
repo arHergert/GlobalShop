@@ -9,15 +9,19 @@
 		<title>GlobalShop.com</title>
   	</h:head>
  	 <h:body>
- 	 	<span class='Ueberschrift'>Registrieren</span>
-   	 	<div class ='divForm'>
-   	 			<h:outputText value="Name"/>
-   	 			<h:inputText value="#{userBean.user.name}"/><br/>
-   	 			<h:outputText value="E-Mail"/>
-   	 			<h:inputText type="email" value="#{userBean.user.email}"/><br/>
-   	 			<h:outputText value="Passwort"/>
-   	 			<h:inputSecret value="#{userBean.user.passwort}"/><br/>
-   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
-   	 		</div>
+ 	 <ui:composition template="../templates/userEntryTemplate.xhtml">
+ 	 		<ui:define name="content">
+	 	 		<span class='Ueberschrift'>Registrieren</span>
+	   	 		<div class ='divForm'>
+	   	 			<h:outputText value="Name"/>
+	   	 			<h:inputText value="#{userBean.user.name}"/><br/>
+	   	 			<h:outputText value="E-Mail"/>
+	   	 			<h:inputText type="email" value="#{userBean.user.email}"/><br/>
+	   	 			<h:outputText value="Passwort"/>
+	   	 			<h:inputSecret value="#{userBean.user.passwort}"/><br/>
+	   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
+	   	 		</div>
+   	 		</ui:define>
+   	 	</ui:composition>>
  	 </h:body>
 </html>
