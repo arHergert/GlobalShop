@@ -11,13 +11,18 @@ import webeng.transferobjects.Transaction;
 
 @ManagedBean(name = "transactionBean")
 @RequestScoped
-public class TransactionBean implements Serializable {
+public class TransactionManagedBean implements Serializable {
 
 	private Transaction transaction;
 	private TransactionManager manager;
 	
-	public TransactionBean() {
+	public TransactionManagedBean() {
 		
+	}
+	
+	@PostConstruct
+	public void init() {
+		manager = new TransactionManager();
 	}
 	
 	public void setTransaction(Transaction transaction) {
@@ -28,9 +33,6 @@ public class TransactionBean implements Serializable {
 		return transaction;
 	}
 	
-	@PostConstruct
-	public void init() {
-		manager = new TransactionManager();
-	}
 	
-}
+	
+}//end class TransactionManagedBean

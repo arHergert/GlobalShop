@@ -15,5 +15,19 @@
             <var>msg</var>
         </resource-bundle>
     </application>
-
+    <managed-bean>
+    	<managed-bean-name>userBean</managed-bean-name>
+    	<managed-bean-class>webeng.presentation.managedbeans.UserManagedBean</managed-bean-class>
+    	<managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+	<managed-bean>
+    	<managed-bean-name>productBean</managed-bean-name>
+    	<managed-bean-class>webeng.presentation.managedbeans.ProductManagedBean</managed-bean-class>
+    	<managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    	<managed-bean-name>transactionBean</managed-bean-name>
+    	<managed-bean-class>webeng.presentation.managedbeans.TransactionManagedBean</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

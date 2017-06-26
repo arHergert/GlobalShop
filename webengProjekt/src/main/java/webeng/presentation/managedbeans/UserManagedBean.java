@@ -13,14 +13,20 @@ import webeng.transferobjects.User;
 
 @ManagedBean(name = "userBean")
 @SessionScoped
-public class UserBean implements Serializable {
+public class UserManagedBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private UserManager manager;
 	private User user;
 
-	public UserBean() {
+	public UserManagedBean() {
 		
+	}
+	
+	
+	@PostConstruct
+	public void init() {
+		manager = new UserManager();
 	}
 	
 	public User getUser() {
@@ -50,9 +56,6 @@ public class UserBean implements Serializable {
 		return "/startseite.xhtml";
 	}
 	
-	@PostConstruct
-	public void init() {
-		
-	}
 	
-}//end class UserBean
+	
+}//end class UserManagedBean
