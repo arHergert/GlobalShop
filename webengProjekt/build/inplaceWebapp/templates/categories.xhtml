@@ -1,19 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:ui="http://java.sun.com/jsf/facelets"
- 	  xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:h="http://java.sun.com/jsf/html">
-	<head>
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>GlobalShop.com</title>
-  	</head>
- 	 <body>
-   	 <ui:composition template="categorys.xhtml">
+  	</h:head>
+ 	 <h:body>
+   	 <ui:composition template="categories.xhtml">
 		<ui:define name="category">
 	   	 	<div class='categorys'>
 	   	 		<div class='search'>
 	   	 			<h:form id='searchForm'>
-	   	 				<h:inputText value="#{ProductBean.search}"/>
-	   	 				<h:commandButton id="save" value="Suchen" action="#{ProductBean.findProducts}"/>
+	   	 				<h:inputText value="#{productBean.search}"/>
+	   	 				<h:commandButton id="save" value="Suchen" action="#{productBean.findProducts}"/>
 	   	 			</h:form>
 	   	 		</div>
 	   	 		<div class='categorys'>
@@ -22,7 +24,7 @@
 		   	 		 	<h:link outcome="pages/Produkte.xhtml" value="Alle">
 							<f:param name="category" value="Alle"/>
 						</h:link> 
-			   	 		<h:dataTable var="category" value="#{ProductBean.categorys}">
+			   	 		<h:dataTable var="category" value="#{productBean.categories}">
 							<h:column>			
 								<h:link outcome="pages/Produkte.xhtml" value="#{category}">
 									<f:param name="category" value="#{category}"/>
@@ -35,5 +37,5 @@
    	 	 </ui:define>
 	  </ui:composition>
    	 	
- 	 </body>
+ 	 </h:body>
 </html>
