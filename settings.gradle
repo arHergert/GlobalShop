@@ -1,0 +1,6 @@
+rootProject.name = 'GlobalShop'
+
+include 'webengProjekt'
+
+
+

@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+ 	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>GlobalShop.com</title>
+  	</head>
+ 	 <body>
+   	 	
+   	 	<ui:composition template="navigation.xhtml">
+			<ui:define name="navigation">
+				<ul>
+		   	 		<li><a href="pages/Startseite.xhtml">Startseite</a></li>
+		   	 		<li><a href="pages/Produkte.xhtml">Produkte</a></li>
+		   	 		<li><a href="pages/Warenkorb.xhtml">Warenkorb</a></li>
+		   	 		<li><a href="pages/MyAccount.xhtml">Mein Account</a></li>
+		   	 		<li>
+			   	 		<a href="pages/LoginLogout.xhtml">
+			   	 			<h:outputText value="Login" rendered="#{sessionScope.userBean == null}"/>
+			   	 			<h:outputText value="Logout" rendered="#{sessionScope.userBean != null}"/>
+			   	 		</a>
+		   	 		</li>
+	   	 		</ul>
+			</ui:define>
+		</ui:composition>
+   	 	
+ 	 </body>
+</html>

@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+ 	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>GlobalShop.com</title>
+  	</head>
+ 	 <body>
+   	 	<h:panelGroup rendered="#{sessionScope.userBean == null}">
+   	 		<span class='Ueberschrift'>Login</span>
+   	 		<div class ='divForm'>
+   	 			<h:outputText value="E-Mail"/>
+   	 			<h:inputText type="email" value="#{userBean.email}"/><br/>
+   	 			<h:outputText value="Passwort"/>
+   	 			<h:inputSecret value="#{userBean.passwort}"/><br/>
+   	 			<h:commandButton id="login" value="Einloggen" action="#{userBean.login}"/>
+   	 		</div>
+   	 		<span> <a href="Registrierung.xhtml">Noch keinen Account? Hier Registrieren</a></span>
+   	 	</h:panelGroup>
+   	 	
+   	 	<h:panelGroup rendered="#{sessionScope.userBean != null}">
+   	 		<span class='Ueberschrift'>Logout</span>
+   	 		<div class ='divForm'>
+   	 			<h:commandButton id="logout" value="Ausloggen" action="#{userBean.logout}"/>
+   	 		</div>
+   	 	
+   	 	</h:panelGroup>
+   	 	
+ 	 </body>
+</html>
