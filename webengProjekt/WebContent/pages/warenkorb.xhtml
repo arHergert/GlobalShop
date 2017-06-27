@@ -10,5 +10,30 @@
   	</h:head>
  	 <h:body>
    		
+   		<ui:composition template="../templates/pageStructureTemplate.xhtml">
+	   		<ui:define name="content">
+	   			Warenkorb
+	   			<h:dataTable var="product" value="#{sessionScope.warenkorb}">
+					<h:form>
+					
+						<h:column>
+							<h:graphicImage src="../resources/products/NA.png"/>
+						</h:column>
+						
+						<h:column>
+							<h:link outcome="../pages/productview.xhtml" value="#{product}">
+								<f:param name="product_id" value="#{product}"/>
+							</h:link>
+						</h:column>
+						
+						<h:column>
+							<h:commandButton id="delete_product" value="Entfernen" action="#{userBean.cartDeleteItem}"/>
+						</h:column>
+					</h:form>
+				</h:dataTable>
+	   			
+	   		</ui:define>
+   		</ui:composition>
+   		
 	 </h:body> 
 </html>

@@ -2,13 +2,20 @@ package webeng.presentation.managedbeans;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import webeng.businesslogic.ProductManager;
 import webeng.businesslogic.UserManager;
+import webeng.transferobjects.Product;
 import webeng.transferobjects.User;
 
 @SessionScoped
@@ -49,6 +56,18 @@ public class UserManagedBean implements Serializable {
 		user.setSessionID("4815162342");
 		//MockupUser anmelden und in Session speichern
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
+		
+		HashMap<Product, Integer> warenkorb = new HashMap<>();
+		ProductManager pm = new ProductManager();
+		warenkorb.put(pm.getProducts().get(1), 2);
+		warenkorb.put(pm.getProducts().get(2), 3);
+		warenkorb.put(pm.getProducts().get(3), 1);
+		List<Entry<Product, Integer>> entries = new ArrayList<>(warenkorb.entrySet());
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", entries);
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb_size", warenkorb.size());
+		
+		
+		
 		System.out.println("LOGIN");
 		
 		/**
@@ -61,6 +80,10 @@ public class UserManagedBean implements Serializable {
 		return "startseite.xhtml";
 	}
 	
+	
+	public String cartDeleteItem() {
+		return "";
+	}
 	
 	public String logout() {
 		user.setSessionID("-1");
