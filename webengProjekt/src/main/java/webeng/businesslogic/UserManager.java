@@ -121,6 +121,7 @@ public class UserManager {
 	
 	public boolean loginSucceeded(User loginUser){
 		
+		
 		User compareUser;
 		
 		try{

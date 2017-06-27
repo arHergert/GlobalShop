@@ -51,4 +51,9 @@ public class ProductManager {
 		mockupCategories.add("Computer");
 		return mockupCategories;
 	}
+	
+	
+	public List<Product> getRandomProducts(){
+		return null;
+	}
 }

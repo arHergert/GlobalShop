@@ -70,6 +70,10 @@ public class ProductManagedBean implements Serializable {
 	}
 	
 	
+	public List<Product> getRandomProducts(){
+		return manager.getRandomProducts();
+	
+	}
 	public String findProducts(){
 		
 		return "produkte.xhtml";
