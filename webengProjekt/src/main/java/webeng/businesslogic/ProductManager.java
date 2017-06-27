@@ -24,7 +24,17 @@ public class ProductManager {
 	}
 	
 	public List<Product> getProducts() {
-		return productDAO.getProducts();
+		
+		List<Product> products = new ArrayList<>();
+		products.add(new Product(1, "Yeezy Boost", 199.99F, "Schuhe", "Richtig geile Schuhe, digga!"));
+		products.add(new Product(2, "Mundharmonika", 19.99F, "Instrumente", "Hochwertige Mundharmonika für talentierte Mundharmonikaristen"));
+		products.add(new Product(3, "Taschentücher", 0.99F, "Haushaltswaren", "Falls deine Freundin dich verlassen hat"));
+		products.add(new Product(4, "Vans", 49.99F, "Schuhe", "Coole Schuhe"));
+		products.add(new Product(5, "Blockflöte", 34.99F, "Instrumente", "Nervig"));
+		products.add(new Product(6, "Maultrommel", 44.99F, "Instrumente", "Macht lustige Geräusche"));
+		return products;
+		
+//		return productDAO.getProducts();
 	}
 	
 	public void deleteProduct(int id){
