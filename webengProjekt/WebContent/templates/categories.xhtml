@@ -4,35 +4,30 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
-	<h:head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>GlobalShop.com</title>
-  	</h:head>
  	 <h:body>
    	 
-	   	 	<div class='categories'>
-	   	 		<div class='search'>
-	   	 			<h:form id='searchForm'>
-	   	 				<h:inputText value="#{productBean.search}"/>
-	   	 				<h:commandButton id="save" value="Suchen" action="#{productBean.findProducts}"/>
-	   	 			</h:form>
-	   	 		</div>
-	   	 		<div class='categorys'>
-	   	 		 	<h:outputText value="Kategorien"/>
-	   	 		 	<p>
-		   	 		 	<h:link outcome="../pages/produkte.xhtml" value="Alle">
-							<f:param name="category" value="Alle"/>
-						</h:link> 
-			   	 		<h:dataTable var="category" value="#{productBean.categories}">
-							<h:column>			
-								<h:link outcome="../pages/produkte.xhtml" value="#{category}">
-									<f:param name="category" value="#{category}"/>
-								</h:link> 
-							</h:column>
-						</h:dataTable>
-					</p>
-	   	 		</div>
-	   	 	  </div>
-   	 	
+		   	 	<div class='categories'>
+		   	 		<div class='search'>
+		   	 			<h:form id='searchForm'>
+		   	 				<h:inputText value="#{productBean.search}"/>
+		   	 				<h:commandButton id="save" value="Suchen" action="#{productBean.findProducts}"/>
+		   	 			</h:form>
+		   	 		</div>
+		   	 		<div class='categorys'>
+		   	 		 	<h:outputText value="Kategorien"/>
+		   	 		 	<p>
+			   	 		 	<h:link outcome="../pages/produkte.xhtml" value="Alle">
+								<f:param name="category" value="Alle"/>
+							</h:link> 
+				   	 		<h:dataTable var="category" value="#{productBean.categories}">
+								<h:column>			
+									<h:link outcome="../pages/produkte.xhtml" value="#{category}">
+										<f:param name="category" value="#{category}"/>
+									</h:link> 
+								</h:column>
+							</h:dataTable>
+						</p>
+		   	 		</div>
+		   	 	  </div>
  	 </h:body>
 </html>
