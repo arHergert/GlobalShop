@@ -13,17 +13,26 @@
    		<ui:composition template="../templates/pageStructureTemplate.xhtml">
 	   		<ui:define name="content">
 	   			Warenkorb
-	   			<h:dataTable var="product" value="#{userBean.warenkorb}">
-	   			
-	   				<h:column>
-	   					<img src="../resources/products/NA.png" height="100" width="100"/> 
-	   					<h:outputText value="#{product.key.name}"/>  Anzahl:<h:outputText value="#{product.value}"/>
-	   					<h:commandButton id="delete_cartItem" value="Entfernen" action="#{userBean.cartDeleteItem}"/>
-	   				</h:column>
-	   				
-				
+	   			<h:form>
+	   			<h:dataTable value="#{userBean.warenkorbKeys}" var="key"> 
+		   			
+		   				<h:column> 
+					        <img src="../resources/products/NA.png" height="100" width="100"/> 
+					    </h:column>
+					    
+					    <h:column> 
+					        #{key}
+					    </h:column> 
+					    <h:column> 
+					        Anzahl: #{sessionScope.warenkorb[key]}
+					    </h:column> 
+					    
+					    <h:column> 
+					        <h:commandButton id="delete_cartItem" value="Entfernen" action="#{userBean.cartDeleteItem(key)}"/>
+					    </h:column> 
+					
 				</h:dataTable>
-	   			
+				 </h:form>
 	   		</ui:define>
    		</ui:composition>
    		
