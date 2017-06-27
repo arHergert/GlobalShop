@@ -10,26 +10,15 @@
   	</h:head>
  	 <h:body>
  	 	<div id="nav" class="navbar">
- 	 		<ul>
-	   	 		<li><a href="startseite.xhtml">Startseite</a></li>
-	   	 		<li><a href="produkte.xhtml">Produkte</a></li>
-	   	 		<li><a href="warenkorb.xhtml">Warenkorb</a></li>
-	   	 		<li><a href="myAccount.xhtml">Mein Account</a></li>
-	   	 		<li>
-		   	 		<a href="login.xhtml">
-		   	 			<h:outputText value="Login" rendered="#{loggedUser == null}"/>
-		   	 			<h:outputText value="Logout" rendered="#{loggedUser != null}"/>
-		   	 		</a>
-	   	 		</li>
-	   	 	</ul>
+ 	 		<ui:include src="navigation.xhtml" />
  	 	</div>
  	 	
    		<div id="header" class="header">
-   			<h:graphicImage url="../resources/webseite_banner.png" alt="GlobalShop.com" width="100%"/>
+   			<ui:include src="banner.xhtml" />
    		</div>
    		
    		<div id="menuebar" class="menuebar">
-   			<ui:insert name="left">Menü</ui:insert>
+   			<ui:include src="categories.xhtml" />
    		</div>
    		<div id="content" class="content">
    			<ui:insert name="content">Hier ist content</ui:insert>
