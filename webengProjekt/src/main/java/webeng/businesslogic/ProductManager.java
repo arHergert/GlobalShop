@@ -2,6 +2,8 @@ package webeng.businesslogic;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import webeng.data.DAOFactory;
 import webeng.data.ProductDAO;
@@ -63,7 +65,22 @@ public class ProductManager {
 	}
 	
 	
+	/**
+	 *
+	 * @return Liste mit drei unterschiedlichen Produkten
+	 */
 	public List<Product> getRandomProducts(){
-		return null;
+		List<Product> all = this.getProducts();
+		List<Product> r = new ArrayList<Product>();
+		Random rand = new Random();
+		int i = 0;
+		while(i<3) {
+			Product temp = all.get(rand.nextInt(all.size()));
+			if(!r.contains(temp)) {
+				r.add(temp);
+				i++;
+			}
+		}
+		return r;
 	}
 }
