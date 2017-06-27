@@ -4,26 +4,18 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
-	<h:head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>GlobalShop.com</title>
-  	</h:head>
  	 <h:body>
-   	 	
-   	 
-				<ul>
-		   	 		<li><a href="pages/startseite.xhtml">Startseite</a></li>
-		   	 		<li><a href="pages/produkte.xhtml">Produkte</a></li>
-		   	 		<li><a href="pages/warenkorb.xhtml">Warenkorb</a></li>
-		   	 		<li><a href="pages/myAccount.xhtml">Mein Account</a></li>
-		   	 		<li>
-			   	 		<a href="pages/login.xhtml">
-			   	 			<h:outputText value="Login" rendered="#{sessionScope.userBean == null}"/>
-			   	 			<h:outputText value="Logout" rendered="#{sessionScope.userBean != null}"/>
-			   	 		</a>
-		   	 		</li>
-	   	 		</ul>
-		
-   	 	
+			<ul>
+	   	 		<li><a href="startseite.xhtml">Startseite</a></li>
+	   	 		<li><a href="produkte.xhtml">Produkte</a></li>
+	   	 		<li><a href="warenkorb.xhtml">Warenkorb</a></li>
+	   	 		<li><a href="myAccount.xhtml">Mein Account</a></li>
+	   	 		<li>
+		   	 		<a href="login.xhtml">
+		   	 			<h:outputText value="Login" rendered="#{sessionScope.loggedUser == null}"/>
+		   	 			<h:outputText value="Logout" rendered="#{sessionScope.loggedUser != null}"/>
+		   	 		</a>
+	   	 		</li>
+	   	 	</ul>
  	 </h:body>
 </html>
