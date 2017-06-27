@@ -72,7 +72,7 @@ public class ProductManagedBean implements Serializable {
 	
 	public String findProducts(){
 		
-		return "../pages/produkte.xhtml";
+		return "produkte.xhtml";
 	}
 	
 	
