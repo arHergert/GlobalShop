@@ -1,6 +1,7 @@
 package webeng.businesslogic;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -15,8 +16,11 @@ public class ProductManager {
 
 	ProductDAO productDAO;
 	
+	List<Product> mockproducts;
+	
 	public ProductManager() {
 		productDAO = DAOFactory.getDAOFactory(Backend.H2).getProductDAO();
+		
 	}
 
 	public void addProduct(int id, String name, float price, String category, String description){
@@ -27,14 +31,14 @@ public class ProductManager {
 	
 	public List<Product> getProducts() {
 		
-		List<Product> products = new ArrayList<>();
-		products.add(new Product(1, "Yeezy Boost", 199.99F, "Schuhe", "Richtig geile Schuhe, digga!"));
-		products.add(new Product(2, "Mundharmonika", 19.99F, "Instrumente", "Hochwertige Mundharmonika für talentierte Mundharmonikaristen"));
-		products.add(new Product(3, "Taschentücher", 0.99F, "Haushaltswaren", "Falls deine Freundin dich verlassen hat"));
-		products.add(new Product(4, "Vans", 49.99F, "Schuhe", "Coole Schuhe"));
-		products.add(new Product(5, "Blockflöte", 34.99F, "Instrumente", "Nervig"));
-		products.add(new Product(6, "Maultrommel", 44.99F, "Instrumente", "Macht lustige Geräusche"));
-		return products;
+		mockproducts = new ArrayList<>();
+		mockproducts.add(new Product(1, "Yeezy Boost", 199.99F, "Schuhe", "Richtig geile Schuhe, digga!"));
+		mockproducts.add(new Product(2, "Mundharmonika", 19.99F, "Instrumente", "Hochwertige Mundharmonika für talentierte Mundharmonikaristen"));
+		mockproducts.add(new Product(3, "Taschentücher", 0.99F, "Haushaltswaren", "Falls deine Freundin dich verlassen hat"));
+		mockproducts.add(new Product(4, "Vans", 49.99F, "Schuhe", "Coole Schuhe"));
+		mockproducts.add(new Product(5, "Blockflöte", 34.99F, "Instrumente", "Nervig"));
+		mockproducts.add(new Product(6, "Maultrommel", 44.99F, "Instrumente", "Macht lustige Geräusche"));
+		return mockproducts;
 		
 //		return productDAO.getProducts();
 	}
@@ -61,6 +65,12 @@ public class ProductManager {
 		List<String> mockupCategories = new ArrayList<>();
 		mockupCategories.add("Schuhe");
 		mockupCategories.add("Computer");
+		mockupCategories.add("Kleidung");
+		mockupCategories.add("Smartphones");
+		mockupCategories.add("Küchengeräte");
+		mockupCategories.add("Rasenmäher");
+		mockupCategories.add("Blu-Rays");
+		Collections.sort(mockupCategories);
 		return mockupCategories;
 	}
 	

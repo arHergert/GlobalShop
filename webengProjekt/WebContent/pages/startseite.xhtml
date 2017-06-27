@@ -8,20 +8,20 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>GlobalShop.com</title>
   	</h:head>
- 	 <h:body>
-   		<ui:composition template="../templates/pageStructureTemplate.xhtml">
- 	 		<ui:define name="content">
-   				Willkommen auf GlobalShop.com
-   					Wir empfehlen ihnen folgende Produkte:
-   					<h:dataTable var="product" value="#{productBean.randomProducts}">
-						<h:column>
-										
-							<h:link outcome="../pages/productview.xhtml" value="#{product.name}">
-								<f:param name="product_id" value="#{product.id}"/>
-							</h:link> 
-						</h:column>
-					</h:dataTable>
-   			</ui:define>
-   	 	</ui:composition>
-	 </h:body> 
+  	<h:body>
+  	<ui:composition template="../templates/pageStructureTemplate.xhtml">
+ 	 	<ui:define name="content">
+			Willkommen auf GlobalShop.com<br/>
+				Wir empfehlen ihnen folgende Produkte:
+			<h:dataTable var="product" value="#{productBean.randomProducts}">
+				<h:column>
+					<img src="../resources/products/NA.png" height="100" width="100"/> 
+					<h:link outcome="../pages/productview.xhtml" value="#{product.name}">
+						<f:param name="product_id" value="#{product.id}"/>
+					</h:link> 
+				</h:column>
+			</h:dataTable>
+	 	</ui:define>
+   	 </ui:composition>
+   	  </h:body> 
 </html>

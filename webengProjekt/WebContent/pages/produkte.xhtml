@@ -11,7 +11,15 @@
  	 <h:body>
    		<ui:composition template="../templates/pageStructureTemplate.xhtml">
  	 		<ui:define name="content">
-   				Hier sind Produkte
+   				Produkte
+   				<h:dataTable var="product" value="#{productBean.products}">
+				<h:column>
+					<img src="../resources/products/NA.png" height="100" width="100"/> 
+					<h:link outcome="../pages/productview.xhtml" value="#{product.name}">
+						<f:param name="product_id" value="#{product.id}"/>
+					</h:link> 
+				</h:column>
+			</h:dataTable>
    			</ui:define>
    	 	</ui:composition>>
 	 </h:body> 

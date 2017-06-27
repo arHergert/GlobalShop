@@ -2,13 +2,14 @@ package webeng.transferobjects;
 
 import java.io.Serializable;
 
-public class Product implements Serializable {
+public class Product implements Serializable, Comparable<Product> {
 
 	private int id;
 	private String name;
 	private float price;
 	private String category;
 	private String description;
+	private int count;
 	
 	public Product(int id, String name, float price, String category, String description) {
 		this.id = id;
@@ -16,6 +17,7 @@ public class Product implements Serializable {
 		this.price = price;
 		this.category = category;
 		this.description = description;
+		this.count = 1;
 	}
 	
 	public int getId() {
@@ -48,7 +50,20 @@ public class Product implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	@Override
+	public int compareTo(Product o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 }
