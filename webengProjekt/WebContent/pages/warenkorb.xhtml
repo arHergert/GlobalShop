@@ -21,22 +21,35 @@
 					    </h:column>
 					    
 					    <h:column> 
+					    	<f:facet name="header">Produktname</f:facet>
 					        #{productBean.getProduct(key).name}
 					    </h:column>
 					    
 					    <h:column>
-					    	Preis: #{productBean.getProduct(key).price}
+					    	<f:facet name="header">Preis</f:facet>
+					    	#{productBean.getProduct(key).price}€
 					    </h:column>
 					    
 					    <h:column>
-					        Anzahl: #{sessionScope.warenkorb[key]}
-					    </h:column> 
+					    	<f:facet name="header">Anzahl</f:facet>
+					        #{sessionScope.warenkorb[key]}
+					    </h:column>
+					    
+					    <h:column>
+					    	<f:facet name="header">Summe</f:facet>
+					    	#{productBean.floorPrice(productBean.getProduct(key).price * sessionScope.warenkorb[key])}€
+					    </h:column>
 					    
 					    <h:column> 
 					        <h:commandButton id="delete_cartItem" value="Entfernen" action="#{userBean.cartDeleteItem(key)}"/>
 					    </h:column>
 					
 				</h:dataTable>
+				
+				<h:dataTable value="#{userBean.warenkorbKeys}" var="key">
+					Summe: 
+				</h:dataTable>
+				
 				 </h:form>
 	   		</ui:define>
    		</ui:composition>

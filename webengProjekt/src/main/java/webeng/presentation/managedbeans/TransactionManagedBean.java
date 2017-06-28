@@ -1,6 +1,8 @@
 package webeng.presentation.managedbeans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -31,6 +33,13 @@ public class TransactionManagedBean implements Serializable {
 	
 	public Transaction getTransaction() {
 		return transaction;
+	}
+	
+	public List<Transaction> getTransactionsByUser() {
+		List<Transaction> r = new ArrayList<>();
+		r.add(new Transaction(1, 1, 1, 1, 2.99F, new java.util.Date()));
+		r.add(new Transaction(2, 1, 2, 2, 2567.99F, new java.util.Date()));
+		return r;
 	}
 	
 	
