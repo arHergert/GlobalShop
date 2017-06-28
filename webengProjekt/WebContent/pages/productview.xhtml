@@ -9,35 +9,27 @@
 		<title>GlobalShop.com</title>
   	</h:head>
  	 <h:body>
- 	 <f:view>
-			<f:metadata>
-				<f:viewParam name="product_id" value="{productBean.product.id}"/>
-				<f:event type="preRenderView" listener="#{productBean.productAuslesen}"/>
-			</f:metadata>
-		</f:view>
    		<ui:composition template="../templates/productViewTemplate.xhtml">
  	 		<ui:define name="content">
-   				
-			
+   							
 				<div class="product-image">
 					<img src="../resources/products/NA.png" height="300" width="300"/>
 				</div>
 		
 				<div class="product-details">
-					<h3><h:outputText value="{productBean.product.name}" /></h3><br/>
-					<h:outputText value="{productBean.product.price}" />
+					<h3><h:outputText value="#{productBean.product(param['product_id']).name}" /></h3><br/>
+					<h:outputText value="#{productBean.product(param['product_id']).price}" />
 				</div>
 				
 				<div class="product-description">
-					<h:outputText value="{productBean.product.description}" />
+					<h:outputText value="#{productBean.product(param['product_id']).description}" />
 				</div>
 			
 				<div class="product-addCart">
 					<form>
-						 <h:commandButton id="delete_cartItem" value="Entfernen" action="#{userBean.cartAddItem}" rendered="#{sessionScope.loggedUser != null}" />
+						 <h:commandButton id="add_cartItem" value="Zum Warenkorb hinzufügen" action="#{userBean.cartAddItem(param['product_id'])}" rendered="#{sessionScope.loggedUser != null}" />
 					</form>
 				</div>
-				
    			</ui:define>
    	 	</ui:composition>>
 	 </h:body> 

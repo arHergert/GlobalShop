@@ -61,8 +61,7 @@ public class Product implements Serializable, Comparable<Product> {
 
 	@Override
 	public int compareTo(Product o) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.id-o.id;
 	}
 	
 	

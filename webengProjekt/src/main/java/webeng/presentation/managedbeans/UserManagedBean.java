@@ -27,10 +27,11 @@ public class UserManagedBean implements Serializable {
 	private User user;
 	private Map<Integer, Integer> warenkorb;
 	private List<Integer> warenkorbKeys;
+	private float warenkorbSum;
+	
 	public UserManagedBean() {
 		
 	}
-	
 	
 	@PostConstruct
 	public void init() {
@@ -40,6 +41,7 @@ public class UserManagedBean implements Serializable {
 		//MockUp Daten initialisieren
 		user = new User();
 		warenkorb = new TreeMap<>();
+		warenkorbSum = 0;
 	}
 	
 	public User getUser() {
@@ -68,7 +70,9 @@ public class UserManagedBean implements Serializable {
 		warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
 		
-		System.out.println("LOGIN");
+		for(Map.Entry<Integer,Integer> entry : warenkorb.entrySet()) {
+			warenkorbSum += (pm.getProduct(entry.getKey()).getPrice() * entry.getValue() );
+		}
 		
 		/**
 		if(manager.loginSucceeded(user)) {
@@ -80,21 +84,27 @@ public class UserManagedBean implements Serializable {
 		return "startseite.xhtml";
 	}
 	
-	public String cartAddItem(Product key) {
-		warenkorb.put(key.getId(), 1);
+	public String cartAddItem(String key) {
+		int id = Integer.parseInt(key);
+		if(warenkorb.containsKey(id)) {
+			warenkorb.replace(id, warenkorb.get(Integer.parseInt(key)), warenkorb.get(Integer.parseInt(key)+1));
+		} else {
+			warenkorb.put(id, 1);
+		}
 		return "";
 	}
 	
-	
-	public String cartDeleteItem(String key) {
+	public String cartDeleteItem(Integer key) {
+		ProductManager pm = new ProductManager();
+		warenkorbSum -= (pm.getProduct(key).getPrice()*warenkorb.get(key));
 		warenkorb.remove(key);
 		warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
 		
 		return "warenkorb.xhtml";
 	}
 	
-	public String update() {
-		return "";
+	public String cartUpdateItem(Integer id, Integer quantity) {
+		return "warenkorb.xhtml";
 	}
 	
 	public String logout() {
@@ -107,6 +117,10 @@ public class UserManagedBean implements Serializable {
 		//manager.addUser(user.getID(), user.getName(), user.getEmail(), user.getPasswort(), user.getSessionID());
 		System.out.println("REGISTRIEREN");
 		return "login.xhtml";
+	}
+	
+	public float getWarenkorbSum() {
+		return warenkorbSum;
 	}
 	
 	public List<Integer> getWarenkorbKeys(){

@@ -12,7 +12,7 @@
    		
    		<ui:composition template="../templates/pageStructureTemplate.xhtml">
 	   		<ui:define name="content">
-	   			Warenkorb
+	   			<h1>Warenkorb</h1>
 	   			<h:form>
 	   			<h:dataTable value="#{userBean.warenkorbKeys}" var="key"> 
 		   			
@@ -34,7 +34,7 @@
 					    	<f:facet name="header">Anzahl</f:facet>
 					        #{sessionScope.warenkorb[key]}
 					    </h:column>
-					    
+					  	
 					    <h:column>
 					    	<f:facet name="header">Summe</f:facet>
 					    	#{productBean.floorPrice(productBean.getProduct(key).price * sessionScope.warenkorb[key])}€
@@ -46,9 +46,7 @@
 					
 				</h:dataTable>
 				
-				<h:dataTable value="#{userBean.warenkorbKeys}" var="key">
-					Summe: 
-				</h:dataTable>
+				Summe: #{productBean.floorPrice(userBean.getWarenkorbSum())}€
 				
 				 </h:form>
 	   		</ui:define>

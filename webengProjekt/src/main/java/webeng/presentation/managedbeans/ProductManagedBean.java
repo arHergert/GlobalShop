@@ -60,17 +60,8 @@ public class ProductManagedBean implements Serializable {
 		return manager.getProduct(id);
 	}
 	
-	public String productAuslesen(){
-		List<Product> tempList =  manager.getProducts();
-		for(Product temp: tempList){
-			
-			System.out.println("TEMP "+temp.getId());
-			System.out.println("THIS "+this.product.getId());
-			if(temp.getId() == this.product.getId()){
-				this.product = temp;
-			}
-		}
-		return "";
+	public Product product(String s){
+		return manager.getProduct(Integer.parseInt(s));
 	}
 	
 	public void setProduct(Product product) {
