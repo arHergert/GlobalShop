@@ -9,13 +9,20 @@
 		<title>GlobalShop.com</title>
   	</h:head>
  	 <h:body>
-   		
-   		<ui:composition template="../templates/pageStructureTemplate.xhtml">
-   			<ui:define name="content">
-   			Mein Account
-   			
-   			</ui:define>
-   		</ui:composition>
-   		
+ 	 	<ui:composition template="../templates/userEntryTemplate.xhtml">
+ 	 		<ui:define name="content">
+		   		<div class ='divForm'>
+		   			<h:form>
+		   				<h:outputText value="Name"/>
+		   	 			<h:inputText type="text" value="#{userBean.user.name}"/><br/>
+		   	 			<h:outputText value="E-Mail"/>
+		   	 			<h:inputText type="email" value="#{userBean.user.email}"/><br/>
+		   	 			<h:outputText value="Passwort"/>
+		   	 			<h:inputSecret value="#{userBean.user.passwort}"/><br/>
+		   	 			<h:commandButton id="update" value="Update" action="#{userBean.update}"/>
+		 			</h:form>
+		   		</div>
+		   	</ui:define>
+		</ui:composition>
 	 </h:body> 
 </html>
