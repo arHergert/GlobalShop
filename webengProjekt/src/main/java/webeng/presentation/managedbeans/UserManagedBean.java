@@ -25,8 +25,8 @@ public class UserManagedBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private UserManager manager;
 	private User user;
-	private Map<Product, Integer> warenkorb;
-	private List<Product> warenkorbKeys;
+	private Map<Integer, Integer> warenkorb;
+	private List<Integer> warenkorbKeys;
 	public UserManagedBean() {
 		
 	}
@@ -61,11 +61,11 @@ public class UserManagedBean implements Serializable {
 		
 		
 		ProductManager pm = new ProductManager();
-		warenkorb.put(pm.getProducts().get(1), 20);
-		warenkorb.put(pm.getProducts().get(2), 12);
-		warenkorb.put(pm.getProducts().get(3), 9);
+		warenkorb.put(pm.getProducts().get(1).getId(), 20);
+		warenkorb.put(pm.getProducts().get(2).getId(), 12);
+		warenkorb.put(pm.getProducts().get(3).getId(), 9);
 		
-		warenkorbKeys = new ArrayList<Product>(warenkorb.keySet());
+		warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
 		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
 		
 		System.out.println("LOGIN");
@@ -81,14 +81,14 @@ public class UserManagedBean implements Serializable {
 	}
 	
 	public String cartAddItem(Product key) {
-		warenkorb.put(key, 1);
+		warenkorb.put(key.getId(), 1);
 		return "";
 	}
 	
 	
 	public String cartDeleteItem(String key) {
 		warenkorb.remove(key);
-		warenkorbKeys = new ArrayList<Product>(warenkorb.keySet());
+		warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
 		
 		return "warenkorb.xhtml";
 	}
@@ -109,8 +109,7 @@ public class UserManagedBean implements Serializable {
 		return "login.xhtml";
 	}
 	
-	
-	public List<Product> getWarenkorbKeys(){
+	public List<Integer> getWarenkorbKeys(){
 	     return warenkorbKeys;
 	}
 	

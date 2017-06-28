@@ -21,15 +21,20 @@
 					    </h:column>
 					    
 					    <h:column> 
-					        #{key}
-					    </h:column> 
-					    <h:column> 
+					        #{productBean.getProduct(key).name}
+					    </h:column>
+					    
+					    <h:column>
+					    	Preis: #{productBean.getProduct(key).price}
+					    </h:column>
+					    
+					    <h:column>
 					        Anzahl: #{sessionScope.warenkorb[key]}
 					    </h:column> 
 					    
 					    <h:column> 
 					        <h:commandButton id="delete_cartItem" value="Entfernen" action="#{userBean.cartDeleteItem(key)}"/>
-					    </h:column> 
+					    </h:column>
 					
 				</h:dataTable>
 				 </h:form>

@@ -48,6 +48,10 @@ public class ProductManagedBean implements Serializable {
 		return product;
 	}
 	
+	public Product getProduct(int id) {
+		return manager.getProduct(id);
+	}
+	
 	public void setProduct(Product product) {
 		this.product = product;
 	}

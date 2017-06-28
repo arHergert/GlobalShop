@@ -43,6 +43,10 @@ public class ProductManager {
 //		return productDAO.getProducts();
 	}
 	
+	public Product getProduct(int id) {
+		return getProducts().get(id);
+	}
+	
 	public void deleteProduct(int id){
 		
 		Product product = new Product(id, null, 0, null, null);
