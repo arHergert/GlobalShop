@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>GlobalShop.com</title>
+  	</h:head>
+ 	 <h:body>
+ 	 	
+ 	 	<div id="nav" class="navbar">
+ 	 		<ui:include src="navigation.xhtml" />
+ 	 	</div>
+ 	 	
+   		<div id="header" class="header">
+   			<ui:include src="banner.xhtml" />
+   		</div>
+   		
+   		<div id="content" class="content">
+   			<ui:insert name="content">Hier ist ein Produkt</ui:insert>
+   		</div>
+   		
+	 </h:body> 
+</html>

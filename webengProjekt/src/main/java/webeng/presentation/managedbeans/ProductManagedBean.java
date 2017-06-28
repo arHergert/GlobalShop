@@ -10,6 +10,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ComponentSystemEvent;
 
 import webeng.businesslogic.ProductManager;
 import webeng.transferobjects.Product;
@@ -52,6 +53,19 @@ public class ProductManagedBean implements Serializable {
 		return manager.getProduct(id);
 	}
 	
+	public String productAuslesen(){
+		List<Product> tempList =  manager.getProducts();
+		for(Product temp: tempList){
+			
+			System.out.println("TEMP "+temp.getId());
+			System.out.println("THIS "+this.product.getId());
+			if(temp.getId() == this.product.getId()){
+				this.product = temp;
+			}
+		}
+		return "";
+	}
+	
 	public void setProduct(Product product) {
 		this.product = product;
 	}
@@ -68,9 +82,9 @@ public class ProductManagedBean implements Serializable {
 		this.list = list;
 	}
 	
-	public String getProducts() {
-		list = manager.findProducts(search);
-		return "";
+	public List<Product> getProducts() {
+		return  manager.getProducts();
+	
 	}
 	
 	
