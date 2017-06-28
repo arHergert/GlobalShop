@@ -2,6 +2,9 @@ package webeng.presentation.managedbeans;
 
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -42,7 +45,11 @@ public class ProductManagedBean implements Serializable {
 		manager = new ProductManager();
 	}
 
-	
+	public BigDecimal floorPrice(float d) {
+        BigDecimal bd = new BigDecimal(Float.toString(d));
+        bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);       
+        return bd;
+    }
 	
 	public Product getProduct() {
 		return product;
