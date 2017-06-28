@@ -22,6 +22,16 @@
 		   	 			<h:commandButton id="update" value="Update" action="#{userBean.update}"/>
 		 			</h:form>
 		   		</div>
+		   		<div class ='divTransactions'>
+		   			<h:dataTable var="transaction" value="#{transactionBean.transactionsByUser}">
+						<h:column>
+							<img src="../resources/products/NA.png" height="100" width="100"/> 
+							<h:link outcome="../pages/productview.xhtml" value="#{transaction.productId}">
+								<f:param name="product_id" value="#{transaction.productId}"/>
+							</h:link> 
+						</h:column>
+					</h:dataTable>
+		   		</div>
 		   	</ui:define>
 		</ui:composition>
 	 </h:body> 
