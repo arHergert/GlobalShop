@@ -10,9 +10,11 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 import webeng.businesslogic.ProductManager;
 import webeng.businesslogic.UserManager;
@@ -86,6 +88,8 @@ public class UserManagedBean implements Serializable {
 			return "login_success";
 		}else{
 			System.out.println("LOGIN NICHT ERFOLGREICH");
+			
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-Mail oder Passwort falsch. Bitte erneut versuchen!", null));
 			return "login_failed";
 		}
 		
