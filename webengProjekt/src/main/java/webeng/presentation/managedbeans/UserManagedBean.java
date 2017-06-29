@@ -128,5 +128,9 @@ public class UserManagedBean implements Serializable {
 	}
 	
 	
+	public String update(){
+		return "";
+	}
+	
 	
 }//end class UserManagedBean
