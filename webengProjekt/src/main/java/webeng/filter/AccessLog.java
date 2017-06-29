@@ -33,14 +33,18 @@ public class AccessLog implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
-		now = LocalDateTime.now();
-		System.out.print(DATEFORMAT.format(now));
-		System.out.print(" "+ req.getRequestURL());
-		if (req.getQueryString() != null){
-			System.out.print(" Query: "+req.getQueryString() + " " );
+		if(!req.getRequestURI().contains("/resources")){
+			now = LocalDateTime.now();
+			System.out.print(DATEFORMAT.format(now));
+			
+			System.out.print(" "+ req.getRequestURI());
+			if (req.getQueryString() != null){
+				System.out.print(" Query: "+req.getQueryString() + " " );
+			}
+			
+			System.out.print("\n");
 		}
 		
-		System.out.print("\n");
 		chain.doFilter(request, response);
 		
 	}

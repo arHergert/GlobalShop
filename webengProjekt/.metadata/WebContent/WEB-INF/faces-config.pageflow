@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14984714203090" configfile="/webengProjekt/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14984714203090" configfile="/webengProjekt/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="pages/login.xhtml" x="217" y="336" id="pf14987307047770" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14987307047771 pf14987333216760" inlinks="pf14987307047772 pf14987333216760" path="/pages/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/registrierung.xhtml" x="492" y="336" id="pf14987307047773" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14987307047772 pf14987333216761" inlinks="pf14987333216761" path="/pages/registrierung.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/startseite.xhtml" x="207" y="180" id="pf14987307047774" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14987307047771" path="/pages/startseite.xhtml"/>
+  <links id="pf14987307047772" target="pf14987307047770" source="pf14987307047773" outcome="register_success" redirect="true" fromaction="#{userBean.registrieren}"/>
+  <links id="pf14987307047771" target="pf14987307047774" source="pf14987307047770" outcome="login_success" redirect="true" fromaction="#{userBean.login}"/>
+  <links id="pf14987333216760" target="pf14987307047770" source="pf14987307047770" outcome="login_failed" fromaction="#{userBean.login}">
+    <bendPoints d1Width="2" d1Height="107" d2Width="2" d2Height="107"/>
+    <bendPoints d1Width="-109" d1Height="-5" d2Width="-109" d2Height="-5"/>
+  </links>
+  <links id="pf14987333216761" target="pf14987307047773" source="pf14987307047773" outcome="register_failed" fromaction="#{userBean.registrieren}">
+    <bendPoints d1Width="1" d1Height="-64" d2Width="1" d2Height="-64"/>
+    <bendPoints d1Width="-66" d1Height="-61" d2Width="-66" d2Height="-61"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+</pageflow:Pageflow>

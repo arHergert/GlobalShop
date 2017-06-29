@@ -38,6 +38,8 @@ public class ProductManager {
 		mockproducts.add(new Product(4, "Vans", 49.99F, "Schuhe", "Coole Schuhe"));
 		mockproducts.add(new Product(5, "Blockflöte", 34.99F, "Instrumente", "Nervig"));
 		mockproducts.add(new Product(6, "Maultrommel", 44.99F, "Instrumente", "Macht lustige Geräusche"));
+		mockproducts.add(new Product(7, "Um-die-Ecke-Schrauber", 89.99F, "Werkzeuge", "Ist zwar physikalisch fragwürdig, aber wen kümmerts?"));
+		mockproducts.add(new Product(8, "Fahrrad von 1889", 1295.95F, "Fahrräder", "Serviervorschlag: Mit Schnurrbart und Monokel fahren"));
 		return mockproducts;
 		
 //		return productDAO.getProducts();

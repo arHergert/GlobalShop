@@ -53,35 +53,42 @@ public class UserManagedBean implements Serializable {
 	}
 	
 	public String login() {
-		user.setEmail("mock@up.de");
-		user.setID(0);
-		user.setName("Michael Mockup");
-		user.setPasswort("mockup123");
-		user.setSessionID("4815162342");
-		//MockupUser anmelden und in Session speichern
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
 		
-		
-		ProductManager pm = new ProductManager();
-		warenkorb.put(pm.getProducts().get(1).getId(), 20);
-		warenkorb.put(pm.getProducts().get(2).getId(), 12);
-		warenkorb.put(pm.getProducts().get(3).getId(), 9);
-		
-		warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
-		
-		for(Map.Entry<Integer,Integer> entry : warenkorb.entrySet()) {
-			warenkorbSum += (pm.getProduct(entry.getKey()).getPrice() * entry.getValue() );
-		}
-		
-		/**
-		if(manager.loginSucceeded(user)) {
+		if (user.getEmail().equals("mock@up.de") && user.getPasswort().equals("mockup123")){
+			user.setEmail("mock@up.de");
+			user.setID(0);
+			user.setName("Michael Mockup");
+			user.setPasswort("mockup123");
+			user.setSessionID("4815162342");
+			//MockupUser anmelden und in Session speichern
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
-		} else {
 			
+			
+			ProductManager pm = new ProductManager();
+			warenkorb.put(pm.getProducts().get(1).getId(), 20);
+			warenkorb.put(pm.getProducts().get(2).getId(), 12);
+			warenkorb.put(pm.getProducts().get(3).getId(), 9);
+			
+			warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
+			
+			for(Map.Entry<Integer,Integer> entry : warenkorb.entrySet()) {
+				warenkorbSum += (pm.getProduct(entry.getKey()).getPrice() * entry.getValue() );
+			}
+			
+			/**
+			if(manager.loginSucceeded(user)) {
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
+			} else {
+				
+			}
+			*/
+			return "login_success";
+		}else{
+			System.out.println("LOGIN NICHT ERFOLGREICH");
+			return "login_failed";
 		}
-		*/
-		return "startseite.xhtml";
+		
 	}
 	
 	public String cartAddItem(String key) {
@@ -116,7 +123,7 @@ public class UserManagedBean implements Serializable {
 	public String registrieren() {
 		//manager.addUser(user.getID(), user.getName(), user.getEmail(), user.getPasswort(), user.getSessionID());
 		System.out.println("REGISTRIEREN");
-		return "login.xhtml";
+		return "register_success";
 	}
 	
 	public float getWarenkorbSum() {

@@ -30,4 +30,42 @@
     	<managed-bean-class>webeng.presentation.managedbeans.TransactionManagedBean</managed-bean-class>
     	<managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <navigation-rule>
+    	<display-name>pages/registrierung.xhtml</display-name>
+    	<from-view-id>/pages/registrierung.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{userBean.registrieren}</from-action>
+    		<from-outcome>register_success</from-outcome>
+    		<to-view-id>/pages/login.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<display-name>pages/login.xhtml</display-name>
+    	<from-view-id>/pages/login.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{userBean.login}</from-action>
+    		<from-outcome>login_success</from-outcome>
+    		<to-view-id>/pages/startseite.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<display-name>pages/login.xhtml</display-name>
+    	<from-view-id>/pages/login.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{userBean.login}</from-action>
+    		<from-outcome>login_failed</from-outcome>
+    		<to-view-id>/pages/login.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<display-name>pages/registrierung.xhtml</display-name>
+    	<from-view-id>/pages/registrierung.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{userBean.registrieren}</from-action>
+    		<from-outcome>register_failed</from-outcome>
+    		<to-view-id>/pages/registrierung.xhtml</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
 </faces-config>

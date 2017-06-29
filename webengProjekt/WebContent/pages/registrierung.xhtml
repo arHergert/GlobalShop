@@ -15,12 +15,13 @@
 	   	 		<div class ='divForm'>
 	   	 			<h:form>
 		   	 			<h:outputText value="Name"/>
-		   	 			<h:inputText value="#{userBean.user.name}"/><br/>
+		   	 			<h:inputText value="#{userBean.user.name}" required="true"/><br/>
 		   	 			<h:outputText value="E-Mail"/>
-		   	 			<h:inputText type="email" value="#{userBean.user.email}"/><br/>
+		   	 			<h:inputText type="email" value="#{userBean.user.email}" required="true"/><br/>
 		   	 			<h:outputText value="Passwort"/>
-		   	 			<h:inputSecret value="#{userBean.user.passwort}"/><br/>
+		   	 			<h:inputSecret value="#{userBean.user.passwort}" required="true"/><br/>
 		   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
+		   	 			<h:commandButton value="Eingaben zurücksetzen" type="reset" immediate="true"/>
 	   	 			</h:form>
 	   	 		</div>
    	 		</ui:define>
