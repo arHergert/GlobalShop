@@ -13,12 +13,14 @@
  	 		<ui:define name="content">
 		   		<div class ='divForm'>
 		   			<h:form>
-		   				<h:outputText value="Name"/>
-		   	 			<h:inputText type="text" value="#{userBean.user.name}"/><br/>
-		   	 			<h:outputText value="E-Mail"/>
-		   	 			<h:inputText type="email" value="#{userBean.user.email}"/><br/>
-		   	 			<h:outputText value="Passwort"/>
-		   	 			<h:inputSecret value="#{userBean.user.passwort}"/><br/>
+		   				<h:outputLabel value="Name:" for="pw"/>
+		   	 			<h:inputText id="name" type="text" value="#{userBean.user.name}"/><br/>
+		   	 			
+		   	 			<h:outputLabel value="E-Mail:" for="email"/>
+		   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}"/><br/>
+		   	 			
+		   	 			<h:outputLabel value="Passwort:" for="pw"/>
+		   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}"/><br/>
 		   	 			<h:commandButton id="update" value="Update" action="#{userBean.update}"/>
 		 			</h:form>
 		   		</div>
