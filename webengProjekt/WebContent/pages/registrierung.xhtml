@@ -14,15 +14,23 @@
 	 	 		<span class='Ueberschrift'>Registrieren</span>
 	   	 		<div class ='divForm'>
 	   	 			<h:form>
-		   	 			<h:outputText value="Name"/>
-		   	 			<h:inputText value="#{userBean.user.name}" required="true"/><br/>
-		   	 			<h:outputText value="E-Mail"/>
-		   	 			<h:inputText type="email" value="#{userBean.user.email}" required="true"/><br/>
-		   	 			<h:outputText value="Passwort"/>
-		   	 			<h:inputSecret value="#{userBean.user.passwort}" required="true"/><br/>
+		   	 			<h:outputLabel value="Name:" for="name"/>
+		   	 			<h:inputText id="name"  value="#{userBean.user.name}" required="true"/><br/>
+		   	 			
+		   	 			<h:outputLabel value="E-Mail:" for="email"/>
+		   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}" required="true">
+		   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
+		   	 			</h:inputText><br/>
+		   	 			
+		   	 			<h:outputLabel value="Passwort:" for="pw"/>
+		   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true">
+		   	 				<f:validator validatorId="webeng.validation.PasswordValidator"/>
+		   	 			</h:inputSecret><br/>
+		   	 			
 		   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
-		   	 			<h:commandButton value="Eingaben zurücksetzen" type="reset" immediate="true"/>
+		   	 			<h:commandButton value="Eingaben zurücksetzen" action="#{userBean.reset}" immediate="true"/>
 	   	 			</h:form>
+	   	 			<h:messages errorStyle="color:red;" redisplay="false" showSummary="false" showDetail="true"/>
 	   	 		</div>
    	 		</ui:define>
    	 	</ui:composition>>

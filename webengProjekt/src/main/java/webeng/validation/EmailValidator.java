@@ -7,7 +7,7 @@ import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 import javax.faces.application.FacesMessage;
 
-@FacesValidator("globalShop.EmailValidator")
+@FacesValidator("webeng.validation.EmailValidator")
 public class EmailValidator implements Validator{
 
 	@Override
@@ -16,7 +16,7 @@ public class EmailValidator implements Validator{
 		if(value instanceof String) {
 			error = false;
 			String s = (String)value;
-			if(!(s.indexOf('@')==1)) {
+			if(!(s.contains("@"))) {
 				error = true;
 			}
 		}

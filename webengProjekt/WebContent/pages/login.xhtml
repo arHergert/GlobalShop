@@ -15,12 +15,17 @@
 		   	 		<span class='Ueberschrift'>Login</span>
 		   	 		<div class ='divForm'>
 		   	 			<h:form>
-			   	 			<h:outputText value="E-Mail"/>
-			   	 			<h:inputText type="email" value="#{userBean.user.email}" required="true"/><br/>
-			   	 			<h:outputText value="Passwort"/>
-			   	 			<h:inputSecret value="#{userBean.user.passwort}" required="true"/><br/>
-			   	 			<h:commandButton id="login" value="Einloggen" action="#{userBean.login}"/>
+			   	 			<h:outputLabel value="E-Mail:" for="email"/>
+			   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}" required="true">
+			   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
+			   	 			</h:inputText><br/>
+			   	 			
+			   	 			<h:outputLabel value="Passwort:" for="pw"/>
+			   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true"/><br/>
+			   	 			
+			   	 			<h:commandButton id="login" value="Einloggen" action="#{userBean.login}" />
 		   	 			</h:form>
+		   	 			<h:messages errorStyle="color:red;" showSummary="false" showDetail="true" />
 		   	 		</div>
 		   	 		<span> <a href="registrierung.xhtml">Noch keinen Account? Hier Registrieren</a></span>
 		   	 	</h:panelGroup>

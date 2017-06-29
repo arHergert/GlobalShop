@@ -77,4 +77,14 @@
     		<to-view-id>/pages/startseite.xhtml</to-view-id>
     	</navigation-case>
     </navigation-rule>
+    <navigation-rule>
+    	<display-name>pages/registrierung.xhtml</display-name>
+    	<from-view-id>/pages/registrierung.xhtml</from-view-id>
+    	<navigation-case>
+    		<from-action>#{userBean.reset}</from-action>
+    		<from-outcome>register_reset</from-outcome>
+    		<to-view-id>/pages/registrierung.xhtml</to-view-id>
+    		<redirect />
+    	</navigation-case>
+    </navigation-rule>
 </faces-config>
