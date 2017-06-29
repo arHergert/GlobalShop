@@ -14,5 +14,5 @@
     <bendPoints d1Width="-66" d1Height="-61" d2Width="-66" d2Height="-61"/>
     <bendPoints d1Width="-64" d2Width="-64"/>
   </links>
-  <links id="pf14987341015182" target="pf14987307047774" source="pf14987307047770" outcome="logout" fromaction="{userBean.logout}"/>
+  <links id="pf14987341015182" target="pf14987307047774" source="pf14987307047770" outcome="logout" fromaction="#{userBean.logout}"/>
 </pageflow:Pageflow>
