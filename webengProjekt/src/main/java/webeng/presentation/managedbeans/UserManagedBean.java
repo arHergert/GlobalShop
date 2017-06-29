@@ -87,7 +87,6 @@ public class UserManagedBean implements Serializable {
 			*/
 			return "login_success";
 		}else{
-			System.out.println("LOGIN NICHT ERFOLGREICH");
 			
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-Mail oder Passwort falsch. Bitte erneut versuchen!", null));
 			return "login_failed";
@@ -126,7 +125,6 @@ public class UserManagedBean implements Serializable {
 	
 	public String registrieren() {
 		//manager.addUser(user.getID(), user.getName(), user.getEmail(), user.getPasswort(), user.getSessionID());
-		System.out.println("REGISTRIEREN");
 		return "register_success";
 	}
 	
@@ -141,6 +139,10 @@ public class UserManagedBean implements Serializable {
 	
 	public String update(){
 		return "";
+	}
+	
+	public String reset() {
+		return "register_reset";
 	}
 	
 	

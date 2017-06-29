@@ -28,7 +28,7 @@
 		   	 			</h:inputSecret><br/>
 		   	 			
 		   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
-		   	 			<h:commandButton value="Eingaben zurücksetzen" type="reset" immediate="true"/>
+		   	 			<h:commandButton value="Eingaben zurücksetzen" action="#{userBean.reset}" immediate="true"/>
 	   	 			</h:form>
 	   	 			<h:messages errorStyle="color:red;" redisplay="false" showSummary="false" showDetail="true"/>
 	   	 		</div>
