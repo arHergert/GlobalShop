@@ -10,8 +10,8 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("webeng.validation.PasswordRegisterValidator")
-public class PasswordRegisterValidator implements Validator {
+@FacesValidator("webeng.validation.PasswordValidator")
+public class PasswordValidator implements Validator {
 
 	/**
 	 * Ein Pattern, das die Syntax des Passworts vorgibt.
@@ -27,7 +27,7 @@ public class PasswordRegisterValidator implements Validator {
 	private Pattern pattern;
 	private Matcher matcher;
 	
-	public PasswordRegisterValidator() {
+	public PasswordValidator() {
 		pattern = Pattern.compile(PASSWORD_PATTERN);
 	}
 	
