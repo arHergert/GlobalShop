@@ -9,7 +9,6 @@ public class Product implements Serializable, Comparable<Product> {
 	private float price;
 	private String category;
 	private String description;
-	private int count;
 	
 	public Product(int id, String name, float price, String category, String description) {
 		this.id = id;
@@ -17,7 +16,6 @@ public class Product implements Serializable, Comparable<Product> {
 		this.price = price;
 		this.category = category;
 		this.description = description;
-		this.count = 1;
 	}
 	
 	public int getId() {
@@ -49,14 +47,6 @@ public class Product implements Serializable, Comparable<Product> {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
 	}
 
 	@Override
