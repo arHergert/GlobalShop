@@ -117,7 +117,7 @@ public class UserManagedBean implements Serializable {
 	public String logout() {
 		user.setSessionID("-1");
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return "startseite.xhtml";
+		return "logout";
 	}
 	
 	public String registrieren() {
