@@ -25,9 +25,9 @@
 			   	 			
 			   	 			<h:commandButton id="login" value="Einloggen" action="#{userBean.login}" />
 		   	 			</h:form>
-		   	 			<h:messages errorStyle="color:red;" showSummary="false" showDetail="true" />
+		   	 			<h:messages styleClass="error message" showSummary="false" showDetail="true" />
 		   	 		</div>
-		   	 		<span> <a href="registrierung.xhtml">Noch keinen Account? Hier Registrieren</a></span>
+		   	 		<span> <a href="registrierung.xhtml">Noch kein Account? Hier Registrieren</a></span>
 		   	 	</h:panelGroup>
 		   	 	
 		   	 	<h:panelGroup rendered="#{loggedUser != null}">

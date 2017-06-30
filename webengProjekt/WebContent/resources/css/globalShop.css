@@ -2,12 +2,28 @@
 
  body {
 	font-family: 'Arial';	
+	background: url("#{resource['website-sprites/white2.jpg']}");
+	background-repeat: repeat;
 }
 
+ 
+ a{
+ 	color: #4682B4;
+ 	text-decoration: none;
+ }
+ 
  a:HOVER{
-	color: red;
+	color: #FF6347;
 }
 
  a:VISITED {
-	color: green;
+	color: #008080;
+}
+
+.menuebar{
+	border-color: #000;
+}
+
+div{
+	background: white;
 }

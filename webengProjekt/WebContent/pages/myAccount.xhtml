@@ -14,15 +14,18 @@
 		   		<div class ='divForm'>
 		   			<h:form>
 		   				<h:outputLabel value="Name:" for="pw"/>
-		   	 			<h:inputText id="name" type="text" value="#{userBean.user.name}"/><br/>
+		   	 			<h:inputText id="name" type="text" value="#{userBean.user.name}" /><br/>
 		   	 			
 		   	 			<h:outputLabel value="E-Mail:" for="email"/>
-		   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}"/><br/>
+		   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}">
+		   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
+		   	 			</h:inputText><br/>
 		   	 			
 		   	 			<h:outputLabel value="Passwort:" for="pw"/>
 		   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}"/><br/>
 		   	 			<h:commandButton id="update" value="Update" action="#{userBean.update}"/>
 		 			</h:form>
+		 			<h:messages styleClass="error message" showSummary="false" showDetail="true" />
 		   		</div>
 		   		<div class ='divTransactions'>
 		   		
