@@ -38,7 +38,7 @@ public class PasswordValidator implements Validator {
 		
 		if(!matcher.matches()) {
 			
-			FacesMessage msg = new FacesMessage("Ungültiges Passwortformat", "Mind. 1 Ziffer, mind. 1 Groß- oder Kleinbuchstabe, mind. 6 Zeichen lang");
+			FacesMessage msg = new FacesMessage("Ungültiges Passwortformat", "Mind. 1 Ziffer, mind. 1 Buchstabe, mind. 6 Zeichen lang");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			throw new ValidatorException(msg);
 			
