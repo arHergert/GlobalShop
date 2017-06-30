@@ -18,6 +18,14 @@ public class Product implements Serializable, Comparable<Product> {
 		this.description = description;
 	}
 	
+	public Product(){
+		this.id = -1;
+		this.name = "null";
+		this.price = -1;
+		this.category = "null";
+		this.description = "null";
+	}
+	
 	public int getId() {
 		return id;
 	}
