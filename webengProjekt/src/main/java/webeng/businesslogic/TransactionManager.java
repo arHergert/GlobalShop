@@ -21,13 +21,12 @@ public class TransactionManager {
 		
 	}
 	
-	public Transaction getTransaction(Transaction transaction) {
-		return transactionDao.getTransaction(transaction);
+	public Transaction getTransaction(int id) {
+		return transactionDao.getTransaction(id);
 	}
 	
-	public List<Transaction> findTransactions() {
-		
-		return transactionDao.findTransactions();
+	public List<Transaction> getTransactions() {
+		return transactionDao.getTransactions();
 	}
 	
 }

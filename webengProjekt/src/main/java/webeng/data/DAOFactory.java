@@ -1,5 +1,7 @@
 package webeng.data;
 
+import webeng.data.h2.H2DAOFactory;
+
 public abstract class DAOFactory {
 	// List of DAO types supported by the factory
 	public enum Backend
