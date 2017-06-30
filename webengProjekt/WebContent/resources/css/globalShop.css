@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+ body {
+	font-family: 'Arial';	
+}
+
+ a:HOVER{
+	color: red;
+}
+
+ a:VISITED {
+	color: green;
+}
