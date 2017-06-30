@@ -37,8 +37,8 @@ public class TransactionManagedBean implements Serializable {
 	
 	public List<Transaction> getTransactionsByUser() {
 		List<Transaction> r = new ArrayList<>();
-		r.add(new Transaction(1, 1, 1, 4, 2.99F, new java.util.Date()));
-		r.add(new Transaction(2, 1, 2, 6, 256.99F, new java.util.Date()));
+		r.add(new Transaction(1, 1, 1, 4, 2.99F, new java.sql.Date(0)));
+		r.add(new Transaction(2, 1, 2, 6, 256.99F, new java.sql.Date(1)));
 		return r;
 	}
 	

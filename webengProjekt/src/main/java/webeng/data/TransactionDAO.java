@@ -7,7 +7,8 @@ import webeng.transferobjects.Transaction;
 public interface TransactionDAO {
 
 	public void addTransaction(Transaction transaction);
-	public Transaction getTransaction(Transaction transaction);
-	public List<Transaction> findTransactions();
+//	public Transaction getTransaction(Transaction transaction);
+	public Transaction getTransaction(int id);
+	public List<Transaction> getTransactions();
 	
 }

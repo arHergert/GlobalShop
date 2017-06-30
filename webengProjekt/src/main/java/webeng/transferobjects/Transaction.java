@@ -1,7 +1,7 @@
 package webeng.transferobjects;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class Transaction implements Serializable {
 	
@@ -19,6 +19,15 @@ public class Transaction implements Serializable {
 		this.quantity = quantity;
 		this.subtotal = subtotal;
 		this.date = date;
+	}
+
+	public Transaction() {
+		this.transactionId = -1;
+		this.userId = -1;
+		this.productId = -1;
+		this.quantity = -1;
+		this.subtotal = -1;
+		this.date = new Date(1);
 	}
 
 	public int getTransactionId() {
