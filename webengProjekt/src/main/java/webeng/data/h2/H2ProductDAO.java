@@ -140,6 +140,31 @@ public class H2ProductDAO implements ProductDAO {
 		 
 		return list;
 	}
+	
+	public List<Product> findProductsByCategory(String category) {
+		
+		String statement = "SELECT * FROM Product WHERE Category = '" + category + "';";
+		List<Product> list = new ArrayList<>();
+		Product p = new Product();
+		
+		try {
+			PreparedStatement stmt = connection.prepareStatement(statement);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				p.setName(rs.getString("name"));
+				p.setId(rs.getInt("productid"));
+				p.setPrice(rs.getFloat("price"));
+				p.setCategory(rs.getString("category"));
+				p.setDescription(rs.getString("description"));
+				list.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		 
+		return list;
+		
+	}
 
 	@Override
 	public List<String> getAllCategories() {
