@@ -20,12 +20,16 @@
 		   	 			<h:outputLabel value="E-Mail:" for="email"/>
 		   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}" required="true">
 		   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
-		   	 			</h:inputText><br/>
+		   	 				<f:ajax event="blur" render="emailMessage"/>
+		   	 			</h:inputText>
+		   	 			<h:message id="emailMessage" for="email"/><br/>
 		   	 			
 		   	 			<h:outputLabel value="Passwort:" for="pw"/>
 		   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true">
 		   	 				<f:validator validatorId="webeng.validation.PasswordValidator"/>
-		   	 			</h:inputSecret><br/>
+		   	 				<f:ajax event="blur" render="pwMessage"/>
+		   	 			</h:inputSecret>
+		   	 			<h:message id="pwMessage" for="pw"/><br/>
 		   	 			
 		   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
 		   	 			<h:commandButton value="Eingaben zurücksetzen" action="#{userBean.reset}" immediate="true"/>
