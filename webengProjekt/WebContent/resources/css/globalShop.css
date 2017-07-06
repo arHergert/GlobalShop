@@ -36,6 +36,8 @@ div{
 form {
     display: table;
     width: 100%;
+    max-width: 650px;
+    outline: thin solid grey;
 }
 
 form div {
