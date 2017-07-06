@@ -18,16 +18,18 @@
 		   	 			<h:form>
 		   	 				<t:fieldset legend="Login">
 		   	 					<div>
-					   	 			<h:outputLabel value="E-Mail:" for="email"/>
-					   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}" required="true">
-					   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
-					   	 				<f:ajax event="blur" render="emailMessage"/>
-					   	 			</h:inputText>
+					   	 			<h:outputLabel value="E-Mail:" for="email">
+						   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}" required="true">
+						   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
+						   	 				<f:ajax event="blur" render="emailMessage"/>
+						   	 			</h:inputText>
+						   	 		</h:outputLabel>
 					   	 			<h:message styleClass="errormessage" id="emailMessage" for="email"/><br/>
 				   	 			</div>
 				   	 			<div>
-					   	 			<h:outputLabel value="Passwort:" for="pw"/>
-					   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true"/><br/>
+					   	 			<h:outputLabel value="Passwort:" for="pw">
+					   	 				<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true"/><br/>
+				   	 				</h:outputLabel>
 				   	 			</div>
 				   	 			<div>
 				   	 				<h:commandButton id="login" value="Einloggen" action="#{userBean.login}" class="button" />
