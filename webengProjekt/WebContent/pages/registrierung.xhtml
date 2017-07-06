@@ -14,25 +14,30 @@
 	 	 		<span class='Ueberschrift'>Registrieren</span>
 	   	 		<div class ='divForm'>
 	   	 			<h:form>
-		   	 			<h:outputLabel value="Name:" for="name"/>
-		   	 			<h:inputText id="name"  value="#{userBean.user.name}" required="true"/><br/>
-		   	 			
-		   	 			<h:outputLabel value="E-Mail:" for="email"/>
-		   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}" required="true">
-		   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
-		   	 				<f:ajax event="blur" render="emailMessage"/>
-		   	 			</h:inputText>
-		   	 			<h:message styleClass="errormessage" id="emailMessage" for="email"/><br/>
-		   	 			
-		   	 			<h:outputLabel value="Passwort:" for="pw"/>
-		   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true">
-		   	 				<f:validator validatorId="webeng.validation.PasswordValidator"/>
-		   	 				<f:ajax event="blur" render="pwMessage"/>
-		   	 			</h:inputSecret>
-		   	 			<h:message styleClass="errormessage"  id="pwMessage" for="pw"/><br/>
-		   	 			
-		   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
-		   	 			<h:commandButton value="Eingaben zurücksetzen" action="#{userBean.reset}" immediate="true"/>
+	   	 				<div>
+		   	 				<h:outputLabel value="Name:" for="name"/>
+		   	 				<h:inputText id="name"  value="#{userBean.user.name}" required="true"/><br/>
+		   	 			</div>
+		   	 			<div>
+			   	 			<h:outputLabel value="E-Mail:" for="email"/>
+			   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}" required="true">
+			   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
+			   	 				<f:ajax event="blur" render="emailMessage"/>
+			   	 			</h:inputText>
+			   	 			<h:message styleClass="errormessage" id="emailMessage" for="email"/><br/>
+		   	 			</div>
+		   	 			<div>
+			   	 			<h:outputLabel value="Passwort:" for="pw"/>
+			   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true">
+			   	 				<f:validator validatorId="webeng.validation.PasswordValidator"/>
+			   	 				<f:ajax event="blur" render="pwMessage"/>
+			   	 			</h:inputSecret>
+			   	 			<h:message styleClass="errormessage"  id="pwMessage" for="pw"/><br/>
+		   	 			</div>
+		   	 			<div>
+			   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
+			   	 			<h:commandButton value="Eingaben zurücksetzen" action="#{userBean.reset}" immediate="true"/>
+			   	 		</div>
 	   	 			</h:form>
 	   	 			<h:messages styleClass="errormessage" redisplay="false" showSummary="false" showDetail="true"/>
 	   	 		</div>

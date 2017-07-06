@@ -29,7 +29,10 @@
 					   	 			<h:outputLabel value="Passwort:" for="pw"/>
 					   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true"/><br/>
 				   	 			</div>
-				   	 			<h:commandButton id="login" value="Einloggen" action="#{userBean.login}" />
+				   	 			<div>
+				   	 				<h:commandButton id="login" value="Einloggen" action="#{userBean.login}" class="button" />
+				   	 			</div>
+				   	 			<h:commandButton id="login" value="Einloggen" action="#{userBean.login}" class="button" />
 			   	 			</t:fieldset>
 		   	 			</h:form>
 		   	 			<h:messages styleClass="errormessage" showSummary="false" showDetail="true" />
