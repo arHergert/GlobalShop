@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +30,11 @@ public class ProductManagedBean implements Serializable {
 	private ProductManager manager;
 	private List<Product> list;
 	private String search;
+	private List<String> suggestions;
+
+	public List<String> getSuggestions() {
+		return suggestions;
+	}
 
 	public String getSearch() {
 		return search;
@@ -46,6 +52,7 @@ public class ProductManagedBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		manager = new ProductManager();
+		suggestions = new ArrayList<>();
 	}
 
 	public BigDecimal floorPrice(float d) {
@@ -101,13 +108,16 @@ public class ProductManagedBean implements Serializable {
 		
 	}
 	
-	public List<String> autoComplete() {
-		List<String> res = new ArrayList<String>();
+	public void searchSuggestions(AjaxBehaviorEvent e) {
+		suggestions = new ArrayList<String>();
+		
 		for(Product p : manager.findProducts(search)) {
-			res.add(p.getName());
+			suggestions.add(p.getName());
 		}
 		
-		return res;
+		Collections.sort(suggestions);
+		
+		
 	}
 	
 }//end class ProductManagedBean
