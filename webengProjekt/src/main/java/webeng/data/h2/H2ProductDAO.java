@@ -95,8 +95,13 @@ public class H2ProductDAO implements ProductDAO {
 
 	@Override
 	public List<Product> findProducts(String product) {
+		String statement;
+		if(product.equals("")) {
+			statement = "SELECT * FROM PRODUCT WHERE Name LIKE '" + product + "' OR Name LIKE '" + product + "';";
+		} else {
+			statement = "SELECT * FROM PRODUCT WHERE Name LIKE '" + product + "%' OR Name LIKE '%" + product + "';";
+		}
 		
-		String statement = "SELECT * FROM PRODUCT WHERE Name LIKE '" + product + "%' OR Name LIKE '%" + product + "';";
 		List<Product> list = new ArrayList<>();
 		String name, cat, desc;
 		int id;
@@ -123,7 +128,13 @@ public class H2ProductDAO implements ProductDAO {
 
 	@Override
 	public List<Product> findProductsByCategory(String product, String category) {
-		String statement = "SELECT * FROM Product WHERE Category LIKE '" + category + "' AND (Name LIKE '" + product + "%' OR Name Like '%" + product + "');";
+		String statement;
+		if(product.equals("")) {
+			statement = "SELECT * FROM PRODUCT WHERE Name LIKE '" + product + "' OR Name LIKE '" + product + "';";
+		} else {
+			statement = "SELECT * FROM PRODUCT WHERE Name LIKE '" + product + "%' OR Name LIKE '%" + product + "';";
+		}
+		
 		List<Product> list = new ArrayList<>();
 		String name, cat, desc;
 		int id;
