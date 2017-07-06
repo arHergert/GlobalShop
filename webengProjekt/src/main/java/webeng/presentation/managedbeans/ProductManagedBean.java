@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ComponentSystemEvent;
 
 import webeng.businesslogic.ProductManager;
@@ -95,6 +97,17 @@ public class ProductManagedBean implements Serializable {
 		return "produkte.xhtml";
 	}
 	
+	public void listener(AjaxBehaviorEvent e) {
+		
+	}
 	
+	public List<String> autoComplete() {
+		List<String> res = new ArrayList<String>();
+		for(Product p : manager.findProducts(search)) {
+			res.add(p.getName());
+		}
+		
+		return res;
+	}
 	
 }//end class ProductManagedBean
