@@ -5,8 +5,6 @@
     xmlns:p="http://primefaces.org/ui">
    	 		<div class='search'>
    	 			<h:form id='searchForm'>
-   	 				<p:outputLabel value="Suche:" for="suche" />
-        			<p:autoComplete id="suche" value="#{productBean.search}" completeMethod="#{productBean.autoComplete}" />
    	 				
    	 				<h:commandButton id="save" value="Suchen" action="#{productBean.findProducts}"/>
    	 			</h:form>
