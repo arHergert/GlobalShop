@@ -22,19 +22,19 @@
 		   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
 		   	 				<f:ajax event="blur" render="emailMessage"/>
 		   	 			</h:inputText>
-		   	 			<h:message id="emailMessage" for="email"/><br/>
+		   	 			<h:message styleClass="errormessage" id="emailMessage" for="email"/><br/>
 		   	 			
 		   	 			<h:outputLabel value="Passwort:" for="pw"/>
 		   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true">
 		   	 				<f:validator validatorId="webeng.validation.PasswordValidator"/>
 		   	 				<f:ajax event="blur" render="pwMessage"/>
 		   	 			</h:inputSecret>
-		   	 			<h:message id="pwMessage" for="pw"/><br/>
+		   	 			<h:message styleClass="errormessage"  id="pwMessage" for="pw"/><br/>
 		   	 			
 		   	 			<h:commandButton id="registrieren" value="Registrieren" action="#{userBean.registrieren}"/>
 		   	 			<h:commandButton value="Eingaben zurücksetzen" action="#{userBean.reset}" immediate="true"/>
 	   	 			</h:form>
-	   	 			<h:messages styleClass="error message" redisplay="false" showSummary="false" showDetail="true"/>
+	   	 			<h:messages styleClass="errormessage" redisplay="false" showSummary="false" showDetail="true"/>
 	   	 		</div>
    	 		</ui:define>
    	 	</ui:composition>>

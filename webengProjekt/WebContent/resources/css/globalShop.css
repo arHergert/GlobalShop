@@ -28,6 +28,6 @@ div{
 	background: white;
 }
 
-#emailMessage, #pwMessage {
+#emailMessage, #pwMessage, .errormessage {
 	color: red;
 }
