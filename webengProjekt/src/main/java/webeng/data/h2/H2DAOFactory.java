@@ -13,7 +13,7 @@ import webeng.data.UserDAO;
 public class H2DAOFactory extends DAOFactory {
 	
 	private static final String DBDRIVER = "org.h2.Driver";
-	private static final String DBURL = "jdbc:h2:./build/WebEng07DB";
+	private static final String DBURL = "jdbc:h2:./build/WebEngProjDB";
 	private static final String DBUSER = "sa";
 	private static final String DBPASSWORD = "sa";
 
