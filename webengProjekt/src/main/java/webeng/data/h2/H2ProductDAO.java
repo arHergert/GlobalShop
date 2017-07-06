@@ -41,18 +41,20 @@ public class H2ProductDAO implements ProductDAO {
 	public List<Product> getProducts() {
 		String statement = "SELECT * FROM PRODUCT;";
 		List<Product> list = new ArrayList<>();
-		Product p = new Product();
+		String name, cat, desc;
+		int id;
+		float price;
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				p.setName(rs.getString("name"));
-				p.setId(rs.getInt("productid"));
-				p.setPrice(rs.getFloat("price"));
-				p.setCategory(rs.getString("category"));
-				p.setDescription(rs.getString("description"));
-				list.add(p);
+				name = rs.getString("name");
+				id = rs.getInt("productid");
+				price = rs.getFloat("price");
+				cat = rs.getString("category");
+				desc = rs.getString("description");
+				list.add(new Product(id,name,price,cat,desc));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -96,18 +98,20 @@ public class H2ProductDAO implements ProductDAO {
 		
 		String statement = "SELECT * FROM PRODUCT WHERE Name LIKE '" + product + "%' OR Name LIKE '%" + product + "';";
 		List<Product> list = new ArrayList<>();
-		Product p = new Product();
+		String name, cat, desc;
+		int id;
+		float price;
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				p.setName(rs.getString("name"));
-				p.setId(rs.getInt("productid"));
-				p.setPrice(rs.getFloat("price"));
-				p.setCategory(rs.getString("category"));
-				p.setDescription(rs.getString("description"));
-				list.add(p);
+				name = rs.getString("name");
+				id = rs.getInt("productid");
+				price = rs.getFloat("price");
+				cat = rs.getString("category");
+				desc = rs.getString("description");
+				list.add(new Product(id,name,price,cat,desc));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -121,18 +125,20 @@ public class H2ProductDAO implements ProductDAO {
 	public List<Product> findProductsByCategory(String product, String category) {
 		String statement = "SELECT * FROM Product WHERE Category LIKE '" + category + "' AND (Name LIKE '" + product + "%' OR Name Like '%" + product + "');";
 		List<Product> list = new ArrayList<>();
-		Product p = new Product();
+		String name, cat, desc;
+		int id;
+		float price;
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				p.setName(rs.getString("name"));
-				p.setId(rs.getInt("productid"));
-				p.setPrice(rs.getFloat("price"));
-				p.setCategory(rs.getString("category"));
-				p.setDescription(rs.getString("description"));
-				list.add(p);
+				name = rs.getString("name");
+				id = rs.getInt("productid");
+				price = rs.getFloat("price");
+				cat = rs.getString("category");
+				desc = rs.getString("description");
+				list.add(new Product(id,name,price,cat,desc));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -145,18 +151,20 @@ public class H2ProductDAO implements ProductDAO {
 		
 		String statement = "SELECT * FROM Product WHERE Category = '" + category + "';";
 		List<Product> list = new ArrayList<>();
-		Product p = new Product();
+		String name, cat, desc;
+		int id;
+		float price;
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				p.setName(rs.getString("name"));
-				p.setId(rs.getInt("productid"));
-				p.setPrice(rs.getFloat("price"));
-				p.setCategory(rs.getString("category"));
-				p.setDescription(rs.getString("description"));
-				list.add(p);
+				name = rs.getString("name");
+				id = rs.getInt("productid");
+				price = rs.getFloat("price");
+				cat = rs.getString("category");
+				desc = rs.getString("description");
+				list.add(new Product(id,name,price,cat,desc));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -192,20 +200,22 @@ public class H2ProductDAO implements ProductDAO {
 	@Override
 	public Product getProduct(int id) {
 		String statement = "SELECT * FROM Product WHERE ProductID = " + id;
-		Product p = new Product();
+		String name="", cat="", desc="";
+		int p_id=0;
+		float price=0F;
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
 			ResultSet rs = stmt.executeQuery();
-			p.setId(rs.getInt("productid"));
-			p.setName(rs.getString("name"));
-			p.setPrice(rs.getFloat("price"));
-			p.setCategory(rs.getString("category"));
-			p.setDescription(rs.getString("description"));
+			name = rs.getString("name");
+			p_id = rs.getInt("productid");
+			price = rs.getFloat("price");
+			cat = rs.getString("category");
+			desc = rs.getString("description");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return p;
+		return new Product(p_id,name,price,cat,desc);
 	}
 
 }

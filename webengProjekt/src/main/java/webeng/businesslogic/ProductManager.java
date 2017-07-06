@@ -31,7 +31,7 @@ public class ProductManager {
 	
 	public List<Product> getProducts() {
 		
-		mockproducts = new ArrayList<>();
+/*		mockproducts = new ArrayList<>();
 		mockproducts.add(new Product(1, "Yeezy Boost", 199.99F, "Schuhe", "Schöne Schuhe für schöne Menschen"));
 		mockproducts.add(new Product(2, "Mundharmonika", 19.99F, "Instrumente", "Hochwertige Mundharmonika für talentierte Mundharmonikaristen"));
 		mockproducts.add(new Product(3, "Taschentücher", 0.99F, "Haushaltswaren", "Ganz normale Taschentücher"));
@@ -40,9 +40,9 @@ public class ProductManager {
 		mockproducts.add(new Product(6, "Maultrommel", 44.99F, "Instrumente", "Macht lustige Geräusche"));
 		mockproducts.add(new Product(7, "Um-die-Ecke-Schrauber", 89.99F, "Werkzeuge", "Ist zwar physikalisch fragwürdig, aber wen kümmerts?"));
 		mockproducts.add(new Product(8, "Fahrrad von 1889", 1295.95F, "Fahrräder", "Serviervorschlag: Mit Schnurrbart und Monokel fahren"));
-		return mockproducts;
+		return mockproducts;*/
 		
-//		return productDAO.getProducts();
+		return productDAO.getProducts();
 	}
 	
 	public Product getProduct(int id) {
@@ -68,7 +68,7 @@ public class ProductManager {
 	}
 	
 	public List<String> getAllCategories() {
-		List<String> mockupCategories = new ArrayList<>();
+/*		List<String> mockupCategories = new ArrayList<>();
 		mockupCategories.add("Schuhe");
 		mockupCategories.add("Computer");
 		mockupCategories.add("Kleidung");
@@ -77,7 +77,8 @@ public class ProductManager {
 		mockupCategories.add("Rasenmäher");
 		mockupCategories.add("Blu-Rays");
 		Collections.sort(mockupCategories);
-		return mockupCategories;
+		return mockupCategories;*/
+		return productDAO.getAllCategories();
 	}
 	
 	
