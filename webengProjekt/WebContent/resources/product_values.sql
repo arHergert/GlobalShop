@@ -1,8 +1,15 @@
 INSERT INTO Product VALUES (1, 'Yeezy Boost', 199.99, 'Schuhe', 'Schöne Schuhe für schöne Menschen'));
 INSERT INTO Product VALUES (2, 'Mundharmonika', 19.99, 'Instrumente', 'Hochwertige Mundharmonika für talentierte Mundharmonikaristen');
-INSERT INTO Product VALUES (3, 'Taschentücher', 0.99, 'Haushaltswaren', 'Ganz normale Taschentücher');
+INSERT INTO Product VALUES (3, 'Taschentücher', 0.99, 'Haushaltswaren', 'Falls dein(e) Freund(in) dich verlassen hat');
 INSERT INTO Product VALUES (4, 'Vans', 49.99, 'Schuhe', 'Coole Schuhe');
 INSERT INTO Product VALUES (5, 'Blockflöte', 34.99, 'Instrumente', 'Nervig');
 INSERT INTO Product VALUES (6, 'Maultrommel', 44.99, 'Instrumente', 'Macht lustige Geräusche');
 INSERT INTO Product VALUES (7, 'Um-die-Ecke-Schrauber', 89.99, 'Werkzeuge', 'Ist zwar physikalisch fragwürdig, aber wen kümmerts?');
 INSERT INTO Product VALUES (8, 'Fahrrad von 1889', 1295.95, 'Fahrräder', 'Serviervorschlag: Mit Schnurrbart und Monokel fahren');
+INSERT INTO Product VALUES (9, 'AJAX', 2.49, 'Haushaltswaren', 'Das sollten wir doch hier einfügen, oder nicht?');
+INSERT INTO Product VALUES (10, 'Steampunk-Akkuschrauber', 499.95, 	'Werkzeuge', 'Selbstgemachter Akkuschrauber. Hergestellt in Indien durch die feinsten Kinderhände');
+INSERT INTO Product VALUES (11, 'Schalldämpfer für Bohrer', 249.39 , 'Werkzeuge' , 'Für ungestörte Arbeiten um 4 Uhr morgens');
+INSERT INTO Product VALUES (12, 'Optimus Prime' , 1029950.00 , 'Elektronische Geräte' , 'Die Transformers haben Michael Bay gekündigt und brauchten eine neue Einnahmequelle. Optimus wurde in Einzelteile verkauft, wir haben ihn aber wir zusammenbauen können.');
+INSERT INTO Product VALUES (13, 'Perpetuum Mobile' , 299999.95 , 'Elektronische Geräte' , 'Greifen sie zu bevor die Regierung uns die Ware wegnimmt');
+INSERT INTO Product VALUES (14, '' , , '' , '');
+INSERT INTO Product VALUES (15, '' , , '' , '');
