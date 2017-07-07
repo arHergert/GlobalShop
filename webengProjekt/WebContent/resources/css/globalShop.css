@@ -131,7 +131,9 @@ ul {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    margin: 8px;
+}
 
-.products a {
+.products a, .products label {
     text-align: center;
 }
