@@ -56,6 +56,14 @@ public class UserManagedBean implements Serializable {
 	
 	public String login() {
 		
+		User loginUser = manager.getUser(user.getEmail());
+		
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", loginUser);
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
+
+		
+		
+		
 		if (user.getEmail().equals("mock@up.de") && user.getPassword().equals("mockup123")){
 			user.setEmail("mock@up.de");
 			user.setID(0);

@@ -9,7 +9,7 @@ INSERT INTO Product VALUES (8, 'Fahrrad von 1889', 1295.95, 'Fahrräder', 'Servie
 INSERT INTO Product VALUES (9, 'AJAX', 2.49, 'Haushaltswaren', 'Das sollten wir doch hier einfügen, oder nicht?');
 INSERT INTO Product VALUES (10, 'Steampunk-Akkuschrauber', 499.95, 	'Werkzeuge', 'Selbstgemachter Akkuschrauber. Hergestellt in Indien durch die feinsten Kinderhände');
 INSERT INTO Product VALUES (11, 'Schalldämpfer für Bohrer', 249.39 , 'Werkzeuge' , 'Für ungestörte Arbeiten um 4 Uhr morgens');
-INSERT INTO Product VALUES (12, 'Optimus Prime' , 1029950.00 , 'Elektronische Geräte' , 'Die Transformers haben Michael Bay gekündigt und brauchten eine neue Einnahmequelle. Optimus wurde in Einzelteile verkauft, wir haben ihn aber wir zusammenbauen können.');
+INSERT INTO Product VALUES (12, 'Optimus Prime' , 1029950.00 , 'Elektronische Geräte' , 'Die Transformers haben Michael Bay gekündigt und brauchten eine neue Einnahmequelle. Optimus wurde in Einzelteile verkauft, aber wir haben ihn zusammenbauen können.');
 INSERT INTO Product VALUES (13, 'Perpetuum Mobile' , 299999.95 , 'Elektronische Geräte' , 'Greifen sie zu bevor die Regierung uns die Ware wegnimmt');
 INSERT INTO Product VALUES (14, '' , , '' , '');
 INSERT INTO Product VALUES (15, '' , , '' , '');

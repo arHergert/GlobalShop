@@ -72,6 +72,38 @@ public class UserManager {
 		
 	}
 	
+	/**
+	 * Auslesen eines Benutzers per email oder ID
+	 * @param userSearch ID oder Email des gewünschten Users
+	 * @return Der gewünschte User
+	 */
+	public User getUser (String userSearch){
+		
+		
+		User newUser = new User();
+		
+		/*
+		newUser.setID(userSearch);
+		return userDAO.getUser(newUser);
+		*/
+		
+		int userid = 0;
+		boolean stringIsID = true;
+		try {
+			userid = Integer.parseInt(userSearch);
+		} catch (NumberFormatException e) {
+			stringIsID = false;
+		}
+	
+		if (stringIsID){
+			newUser.setID(userid);
+		}else{
+			newUser.setEmail(userSearch);
+		}
+		return userDAO.getUser(newUser);
+		
+	}
+	
 	
 	/**
 	 * Auslesen aller Nutzer

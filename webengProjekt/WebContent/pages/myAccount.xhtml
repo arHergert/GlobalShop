@@ -22,7 +22,7 @@
 		   	 			</h:inputText><br/>
 		   	 			
 		   	 			<h:outputLabel value="Passwort:" for="pw"/>
-		   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}"/><br/>
+		   	 			<h:inputSecret id="pw" value="#{userBean.user.password}"/><br/>
 		   	 			<h:commandButton id="update" value="Update" action="#{userBean.update}"/>
 		 			</h:form>
 		 			<h:messages styleClass="error message" showSummary="false" showDetail="true" />
