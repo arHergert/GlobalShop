@@ -12,9 +12,9 @@
    		<ui:composition template="../templates/pageStructureTemplate.xhtml">
  	 		<ui:define name="content">
    				Produkte
-   				<h:dataTable var="product" value="#{productBean.products}">
+   				<h:dataTable var="product" value="#{productBean.products}" class="products">
 				<h:column>
-					<img src="../resources/products/#{product.id}.jpg" height="100" width="100"/> 
+					<img src="../resources/products/#{product.id}.jpg" height="200" width="200"/> 
 					<h:link outcome="../pages/productview.xhtml" value="#{product.name}  ">
 						<f:param name="product_id" value="#{product.id}"/>
 					</h:link> 
