@@ -30,9 +30,9 @@ public class ProductManagedBean implements Serializable {
 	private ProductManager manager;
 	private List<Product> list;
 	private String search;
-	private List<String> suggestions;
+	private List<Product> suggestions;
 
-	public List<String> getSuggestions() {
+	public List<Product> getSuggestions() {
 		return suggestions;
 	}
 
@@ -109,10 +109,10 @@ public class ProductManagedBean implements Serializable {
 	}
 	
 	public void searchSuggestions(AjaxBehaviorEvent e) {
-		suggestions = new ArrayList<String>();
+		suggestions = new ArrayList<Product>();
 		
 		for(Product p : manager.findProducts(search)) {
-			suggestions.add(p.getName());
+			suggestions.add(p);
 		}
 		
 		Collections.sort(suggestions);
