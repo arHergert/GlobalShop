@@ -56,11 +56,11 @@ public class UserManagedBean implements Serializable {
 	
 	public String login() {
 		
-		if (user.getEmail().equals("mock@up.de") && user.getPasswort().equals("mockup123")){
+		if (user.getEmail().equals("mock@up.de") && user.getPassword().equals("mockup123")){
 			user.setEmail("mock@up.de");
 			user.setID(0);
 			user.setName("Michael Mockup");
-			user.setPasswort("mockup123");
+			user.setPassword("mockup123");
 			user.setSessionID("4815162342");
 			//MockupUser anmelden und in Session speichern
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
@@ -98,8 +98,10 @@ public class UserManagedBean implements Serializable {
 		int id = Integer.parseInt(key);
 		if(warenkorb.containsKey(id)) {
 			warenkorb.replace(id, warenkorb.get(Integer.parseInt(key)), warenkorb.get(Integer.parseInt(key)+1));
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
 		} else {
 			warenkorb.put(id, 1);
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
 		}
 		return "";
 	}

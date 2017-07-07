@@ -9,10 +9,10 @@ public interface UserDAO {
 
 	 public void addUser(User newUser);
 	 public User getUser(User newUser);
-	 public List<User> findAllUser();
+	 public User getUser(int id);
+	 public List<User> findAllUsers();
 	 public void updateUser(User tempUser);
-	 public void updateUserSession(User tempUser);
 	 public void deleteUser(User deletedUser);
-	 public boolean isEmailRegistrated(User searchUser);
+	 public boolean isEmailRegistered(User searchUser);
 	
 }//end interface UserDAO

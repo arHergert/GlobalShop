@@ -28,7 +28,7 @@
 		   	 			</div>
 		   	 			<div>
 			   	 			<h:outputLabel value="Passwort:" for="pw"/>
-			   	 			<h:inputSecret id="pw" value="#{userBean.user.passwort}" required="true">
+			   	 			<h:inputSecret id="pw" value="#{userBean.user.password}" required="true">
 			   	 				<f:validator validatorId="webeng.validation.PasswordValidator"/>
 			   	 				<f:ajax event="blur" render="pwMessage"/>
 			   	 			</h:inputSecret>

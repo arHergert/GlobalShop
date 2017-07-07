@@ -37,7 +37,7 @@ public class UserManager {
 		
 		User newUser = new User(id,name,email,passwort,sessionid);
 		
-		if(userDAO.isEmailRegistrated(newUser) == false){
+		if(userDAO.isEmailRegistered(newUser) == false){
 			userDAO.addUser(newUser);
 			return true;
 		}
@@ -51,17 +51,11 @@ public class UserManager {
 	 * @param userSearch ID oder Email des gewünschten Users
 	 * @return Der gewünschte User
 	 */
-	public User getUser (String userSearch){
+	public User getUser (int id){
+		return userDAO.getUser(id);
 		
 		
-		User newUser = new User();
-		
-		/*
-		newUser.setID(userSearch);
-		return userDAO.getUser(newUser);
-		*/
-		
-		int userid = 0;
+/*		int userid = 0;
 		boolean stringIsID = true;
 		try {
 			userid = Integer.parseInt(userSearch);
@@ -74,7 +68,7 @@ public class UserManager {
 		}else{
 			newUser.setEmail(userSearch);
 		}
-		return userDAO.getUser(newUser);
+		return userDAO.getUser(newUser);*/
 		
 	}
 	
@@ -85,7 +79,7 @@ public class UserManager {
 	 */
 	public List<User> getAllUser(){
 		
-		return userDAO.findAllUser();
+		return userDAO.findAllUsers();
 	}
 	
 	
@@ -114,24 +108,17 @@ public class UserManager {
 		return true;
 	}
 	
-	
-	public void updateUserSession(User updateUser){
-		userDAO.updateUserSession(updateUser);
-	}
-	
 	public boolean loginSucceeded(User loginUser){
-		
-		
 		User compareUser;
 		
 		try{
-			compareUser = getUser(loginUser.getEmail()); 
+			compareUser = getUser(loginUser.getID()); 
 		}catch (Exception e){
 			//User wurde nicht gefunden -> login nicht erfolgreich
 			return false;
 		}
 		
-		if(loginUser.getEmail().equals(compareUser.getEmail()) && loginUser.getPasswort().equals(compareUser.getPasswort()) ){
+		if(loginUser.getEmail().equals(compareUser.getEmail()) && loginUser.getPassword().equals(compareUser.getPassword()) ){
 			return true;
 		}
 		

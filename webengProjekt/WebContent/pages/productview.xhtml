@@ -26,11 +26,11 @@
 				</div>
 			
 				<div class="product-addCart">
-					<form>
-						 <h:commandButton id="add_cartItem" value="Zum Warenkorb hinzufügen" action="#{userBean.cartAddItem(param['product_id'])}" rendered="#{sessionScope.loggedUser != null}" />
-					</form>
+					<h:form>
+						 <h:commandLink id="add_cartItem" value="Zum Warenkorb hinzufügen" action="#{userBean.cartAddItem(param['product_id'])}" rendered="#{sessionScope.loggedUser != null}" />
+					</h:form>
 				</div>
    			</ui:define>
-   	 	</ui:composition>>
+   	 	</ui:composition>
 	 </h:body> 
 </html>
