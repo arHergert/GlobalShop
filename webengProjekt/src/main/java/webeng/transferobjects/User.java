@@ -3,21 +3,20 @@ package webeng.transferobjects;
 import java.io.Serializable;
 
 public class User implements Serializable{
-
 	
 	private int id = 0;
 	private String name;
 	private String email;
-	private String passwort;
+	private String password;
 	private String sessionid;
 	
 	public User(){};
 	
-	public User( int newId, String newName, String email, String newPasswort, String sessionid){
-		this.id = newId;
-		this.name = newName;
+	public User( int id, String name, String email, String password, String sessionid){
+		this.id = id;
+		this.name = name;
 		this.email = email;
-		this.passwort = newPasswort;
+		this.password = password;
 		this.sessionid = sessionid;
 	}
 	 
@@ -55,13 +54,12 @@ public class User implements Serializable{
 	 }
 	 
 	 
-	 //Passwort
-	 public String getPasswort(){
-		 return passwort;
+	 public String getPassword(){
+		 return password;
 	 }
 	 
-	 public void setPasswort(String passwort){
-		 this.passwort = passwort;
+	 public void setPassword(String password){
+		 this.password = password;
 	 }
 	 
 	 
