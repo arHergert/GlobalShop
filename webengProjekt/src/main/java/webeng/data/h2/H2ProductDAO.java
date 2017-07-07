@@ -99,7 +99,7 @@ public class H2ProductDAO implements ProductDAO {
 		if(product.equals("")) {
 			statement = "SELECT * FROM PRODUCT WHERE UPPER(Name) LIKE '" + product.toUpperCase() + "';";
 		} else {
-			statement = "SELECT * FROM PRODUCT WHERE UPPER(Name) LIKE '" + product.toUpperCase() + "%' OR Name LIKE '%" + product + "';";
+			statement = "SELECT * FROM PRODUCT WHERE UPPER(Name) LIKE '" + product.toUpperCase() + "%' OR UPPER(Name) LIKE '%" + product.toUpperCase() + "' OR UPPER(Name) LIKE '%" + product.toUpperCase() + "%'";
 		}
 		
 		List<Product> list = new ArrayList<>();
