@@ -30,8 +30,7 @@ div{
 
 #emailMessage, #pwMessage, .errormessage {
 	color: red;
-	padding: 5px;
-	float: right;
+	padding: 5px 0 20px 0;
 }
 
 form {
@@ -62,4 +61,21 @@ input {
 
 .Ueberschrift {
 	font-weight: bold;
+}
+
+.divForm {	
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+    width: 275px;
+}
+
+#login {
+	margin: 0;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
 }
