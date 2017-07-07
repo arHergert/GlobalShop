@@ -97,9 +97,9 @@ public class H2ProductDAO implements ProductDAO {
 	public List<Product> findProducts(String product) {
 		String statement;
 		if(product.equals("")) {
-			statement = "SELECT * FROM PRODUCT WHERE Name LIKE '" + product + "' OR Name LIKE '" + product + "';";
+			statement = "SELECT * FROM PRODUCT WHERE UPPER(Name) LIKE '" + product.toUpperCase() + "';";
 		} else {
-			statement = "SELECT * FROM PRODUCT WHERE Name LIKE '" + product + "%' OR Name LIKE '%" + product + "';";
+			statement = "SELECT * FROM PRODUCT WHERE UPPER(Name) LIKE '" + product.toUpperCase() + "%' OR Name LIKE '%" + product + "';";
 		}
 		
 		List<Product> list = new ArrayList<>();
