@@ -126,3 +126,12 @@ ul {
     border-color: grey;
     border-width: thin;
 }
+
+.products td {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+.products a {
+    text-align: center;
+}
