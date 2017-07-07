@@ -13,7 +13,7 @@
  	 	<ui:define name="content">
 			Willkommen auf GlobalShop.com<br/>
 				Wir empfehlen ihnen folgende Produkte:
-			<h:dataTable var="product" value="#{productBean.randomProducts}">
+			<h:dataTable var="product" value="#{productBean.randomProducts}" class="products">
 				<h:column>
 					<img src="../resources/products/#{product.id}.jpg" height="100" width="100"/> 
 					<h:link outcome="../pages/productview.xhtml" value="#{product.name}">
