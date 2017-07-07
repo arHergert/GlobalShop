@@ -22,6 +22,15 @@
    			<ui:include src="categories.xhtml" />
    		</div>
    		<div id="content" class="content">
+   			<h:dataTable value="#{productBean.suggestions}" var="vorschlag" id="suchanfrage">
+				<h:column>
+					<img src="../resources/products/#{vorschlag.id}.jpg" height="100" width="100"/> 
+					<h:link outcome="../pages/productview.xhtml" value="#{vorschlag.name}">
+						<f:param name="product_id" value="#{vorschlag.id}"/>
+					</h:link> 
+				</h:column>
+   	 		</h:dataTable>
+   		
    			<ui:insert name="content">Hier ist content</ui:insert>
    		</div>
 	 </h:body> 
