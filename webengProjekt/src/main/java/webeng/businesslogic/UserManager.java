@@ -45,6 +45,18 @@ public class UserManager {
 		return false;
 	}
 	
+	public boolean addUser(String name, String email, String passwort, String sessionid){
+		
+		User newUser = new User(0,name,email,passwort,sessionid);
+		
+		if(userDAO.isEmailRegistered(newUser) == false){
+			userDAO.addUser(newUser);
+			return true;
+		}
+		
+		return false;
+	}
+	
 	
 	/**
 	 * Auslesen eines Benutzers per email oder ID
@@ -128,13 +140,13 @@ public class UserManager {
 	
 	
 	public boolean updateUser(User updateUser){
-		List<User> userList = getAllUser();
+		/*List<User> userList = getAllUser();
 		for (User u: userList){
 			if(u.getEmail().equals(updateUser.getEmail()) && u.getID() != updateUser.getID()){
 				
 				return false;
 			}
-		}
+		}*/
 		
 		userDAO.updateUser(updateUser);
 		return true;
@@ -144,7 +156,7 @@ public class UserManager {
 		User compareUser;
 		
 		try{
-			compareUser = getUser(loginUser.getID()); 
+			compareUser = getUser(loginUser.getEmail()); 
 		}catch (Exception e){
 			//User wurde nicht gefunden -> login nicht erfolgreich
 			return false;
@@ -156,6 +168,11 @@ public class UserManager {
 		
 		
 		return false;
+	}
+
+
+	public void updateSessionId(User user) {
+		userDAO.updateSessionId(user);
 	}
 	
 	

@@ -14,5 +14,7 @@ public interface UserDAO {
 	 public void updateUser(User tempUser);
 	 public void deleteUser(User deletedUser);
 	 public boolean isEmailRegistered(User searchUser);
+	 public User getUser(String email);
+	void updateSessionId(User user);
 	
 }//end interface UserDAO

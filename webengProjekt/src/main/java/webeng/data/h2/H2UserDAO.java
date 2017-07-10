@@ -22,15 +22,14 @@ public class H2UserDAO implements UserDAO {
 	@Override
 	public void addUser(User newUser) {
 		
-		String statement = "INSERT INTO User (id, name, email, passwort, sessionId) VALUES (?,?,?,?,?)";
+		String statement = "INSERT INTO User VALUES (default,?,?,?,?)";
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
-			stmt.setInt(1, newUser.getID());
-			stmt.setString(2, newUser.getName());
-			stmt.setString(3, newUser.getEmail());
-			stmt.setString(4, newUser.getPassword());
-			stmt.setString(5, newUser.getSessionID());
+			stmt.setString(1, newUser.getName());
+			stmt.setString(2, newUser.getEmail());
+			stmt.setString(3, newUser.getPassword());
+			stmt.setString(4, newUser.getSessionID());
 			stmt.execute();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -39,14 +38,36 @@ public class H2UserDAO implements UserDAO {
 	}
 
 	@Override
+	public User getUser(String email) {
+		
+		String statement = "SELECT userid, name, email, passwort, sessionid FROM User WHERE Email = " + email;
+		String name = null, eMail = null, passwort = null, sessionId = null;
+		int id = 0;
+		
+		try {
+			PreparedStatement stmt = connection.prepareStatement(statement);
+			ResultSet rs = stmt.executeQuery();
+			name = rs.getString("name");
+			eMail = rs.getString("email");
+			passwort = rs.getString("passwort");
+			id = rs.getInt("userid");
+			sessionId = rs.getString("sessionid");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return new User(id, name, email, passwort, sessionId);
+		
+	}
+	
+	@Override
 	public User getUser(User userReference) {
 
-		String statement = "SELECT id, name, email, passwort, sessionid FROM User WHERE ";
+		String statement = "SELECT userid, name, email, passwort, sessionid FROM User WHERE ";
 		String name = null, email = null, passwort = null, sessionId = null;
 		int id = 0;
 		
 		if(userReference.getID() != 0) {
-			statement += "id=?;";
+			statement += "userid=?;";
 		} else if(userReference.getEmail() != null) {
 			statement += "email=?;";
 		} else {
@@ -55,7 +76,7 @@ public class H2UserDAO implements UserDAO {
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
-			if(statement.contains("WHERE id="))
+			if(statement.contains("WHERE userid="))
 				stmt.setInt(1, userReference.getID());
 			else if(statement.contains("WHERE email="))
 				stmt.setString(1, userReference.getEmail());
@@ -64,7 +85,7 @@ public class H2UserDAO implements UserDAO {
 				name = rs.getString("name");
 				email = rs.getString("email");
 				passwort = rs.getString("passwort");
-				id = rs.getInt("id");
+				id = rs.getInt("userid");
 				sessionId = rs.getString("sessionid");
 			}
 		} catch (SQLException e) {
@@ -88,7 +109,7 @@ public class H2UserDAO implements UserDAO {
 				name = rs.getString("name");
 				email = rs.getString("email");
 				passwort = rs.getString("passwort");
-				id = rs.getInt("id");
+				id = rs.getInt("userid");
 				sessionId = rs.getString("sessionid");
 				list.add(new User(id, name, email, passwort, sessionId));
 			}
@@ -121,9 +142,22 @@ public class H2UserDAO implements UserDAO {
 	}
 
 	@Override
+	public void updateSessionId(User user) {
+		String statement = "UPDATE User SET Sessionid = ? WHERE Email = '" + user.getEmail() + "'";
+		
+		try {
+			PreparedStatement stmt = connection.prepareStatement(statement);
+			stmt.setString(1, user.getSessionID());
+			stmt.execute();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
 	public void updateUser(User user) {
 		
-		String statement = "UPDATE User SET Name = ?, Email = ?, Sessionid = ? WHERE ID = " + user.getID();
+		String statement = "UPDATE User SET Name = ?, Email = ?, Sessionid = ? WHERE Userid = " + user.getID();
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
@@ -140,7 +174,7 @@ public class H2UserDAO implements UserDAO {
 	@Override
 	public void deleteUser(User user) {
 		
-		String statement = "DELETE FROM User WHERE ID = " + user.getID();
+		String statement = "DELETE FROM User WHERE Userid = " + user.getID();
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
@@ -165,7 +199,7 @@ public class H2UserDAO implements UserDAO {
 				name = rs.getString("name");
 				id = rs.getInt("userid");
 				email = rs.getString("email");
-				password = rs.getString("password");
+				password = rs.getString("passwort");
 				sessionid = rs.getString("sessionid");
 				list.add(new User(id,name,email,password,sessionid));
 			}
@@ -186,7 +220,7 @@ public class H2UserDAO implements UserDAO {
 			ResultSet rs = stmt.executeQuery();
 			name = rs.getString("name");
 			email = rs.getString("email");
-			password = rs.getString("password");
+			password = rs.getString("passwort");
 			sessionId = rs.getString("sessionid");
 		} catch (SQLException e) {
 			e.printStackTrace();

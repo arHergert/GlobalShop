@@ -1,10 +1,8 @@
 package webeng.businesslogic;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 import webeng.data.DAOFactory;
 import webeng.data.ProductDAO;
@@ -15,8 +13,6 @@ import webeng.transferobjects.User;
 public class ProductManager {
 
 	ProductDAO productDAO;
-	
-	List<Product> mockproducts;
 	
 	public ProductManager() {
 		productDAO = DAOFactory.getDAOFactory(Backend.H2).getProductDAO();

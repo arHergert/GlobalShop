@@ -56,13 +56,22 @@ public class UserManagedBean implements Serializable {
 	
 	public String login() {
 		
-		User loginUser = manager.getUser(user.getEmail());
+		if(manager.loginSucceeded(user)) {
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
+			user.setSessionID(FacesContext.getCurrentInstance().getExternalContext().getSessionId(false));
+			manager.updateSessionId(user);
+			return "login_success";
+		} else {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-Mail oder Passwort falsch. Bitte erneut versuchen!", null));
+			return "login_failed";
+		}
 		
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", loginUser);
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
+//		User loginUser = manager.getUser(user.getEmail());
+		
 
 		
-		
+		/*
 		
 		if (user.getEmail().equals("mock@up.de") && user.getPassword().equals("mockup123")){
 			user.setEmail("mock@up.de");
@@ -93,23 +102,29 @@ public class UserManagedBean implements Serializable {
 				
 			}
 			*/
+		/*
 			return "login_success";
 		}else{
 			
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-Mail oder Passwort falsch. Bitte erneut versuchen!", null));
 			return "login_failed";
-		}
+		}*/
 		
 	}
 	
 	public String cartAddItem(String key) {
 		int id = Integer.parseInt(key);
+		ProductManager pm = new ProductManager();
 		if(warenkorb.containsKey(id)) {
 			warenkorb.replace(id, warenkorb.get(Integer.parseInt(key)), warenkorb.get(Integer.parseInt(key)+1));
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
+			warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
+			warenkorbSum += (pm.getProduct(Integer.parseInt(key)).getPrice()*warenkorb.get(key));
 		} else {
 			warenkorb.put(id, 1);
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
+			warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
+			warenkorbSum += (pm.getProduct(Integer.parseInt(key)).getPrice()*warenkorb.get(key));
 		}
 		return "";
 	}
@@ -129,12 +144,14 @@ public class UserManagedBean implements Serializable {
 	
 	public String logout() {
 		user.setSessionID("-1");
+		manager.updateSessionId(user);
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "logout";
 	}
 	
 	public String registrieren() {
-		//manager.addUser(user.getID(), user.getName(), user.getEmail(), user.getPasswort(), user.getSessionID());
+		System.out.println("Registrierung: "+manager.addUser(user.getName(), user.getEmail(), user.getPassword(), user.getSessionID()));
+		user.setID(manager.getUser(user.getEmail()).getID());
 		return "register_success";
 	}
 	
