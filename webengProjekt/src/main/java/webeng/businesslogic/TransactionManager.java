@@ -29,4 +29,8 @@ public class TransactionManager {
 		return transactionDao.getTransactions();
 	}
 	
+	public List<Transaction> getTransactionsByUser(int id) {
+		return transactionDao.getTransactionsByUser(id);
+	}
+	
 }

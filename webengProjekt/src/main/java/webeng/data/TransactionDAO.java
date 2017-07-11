@@ -10,5 +10,6 @@ public interface TransactionDAO {
 //	public Transaction getTransaction(Transaction transaction);
 	public Transaction getTransaction(int id);
 	public List<Transaction> getTransactions();
+	public List<Transaction> getTransactionsByUser(int id);
 	
 }

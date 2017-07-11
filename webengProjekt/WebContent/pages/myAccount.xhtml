@@ -30,7 +30,7 @@
 		   		<div class ='divTransactions'>
 		   		
 		   			Gekaufte Produkte<br/>
-		   			<h:dataTable var="transaction" value="#{transactionBean.transactionsByUser}">
+		   			<h:dataTable var="transaction" value="#{transactionBean.transactionsByUser(userBean.user.ID)}">
 						<h:column>
 							<f:facet name="header">Produktbild</f:facet>
 							<img src="../resources/products/#{transaction.productId}.jpg" height="100" width="100"/> 
@@ -45,7 +45,7 @@
 						</h:column>
 							
 						<h:column>
-							<f:facet name="header">Anzahl gekauft</f:facet>
+							<f:facet name="header">Anzahl</f:facet>
 							<h:outputText value="#{transaction.quantity}"/>
 						</h:column>
 						
