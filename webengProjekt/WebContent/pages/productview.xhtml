@@ -5,6 +5,9 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
+		<f:metadata>
+			<f:viewParam id="product_id" name="product_id" value="#{userBean.currentViewedProduct}" required="true"/>
+		</f:metadata>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>GlobalShop.com</title>
   	</h:head>
@@ -26,9 +29,13 @@
 				</div>
 			
 				<div class="product-addCart">
-					<h:form>
-						 <h:commandLink id="add_cartItem" value="Zum Warenkorb hinzufügen" action="#{userBean.cartAddItem(param['product_id'])}" rendered="#{sessionScope.loggedUser != null}" />
-					</h:form>
+					<h:panelGroup rendered="#{sessionScope.loggedUser != null}">
+						
+						<h:form>
+							<h:commandLink id="add_cartItem" value="Zum Warenkorb hinzufügen" action="#{userBean.cartAddItem}"  />
+						</h:form>	
+					</h:panelGroup>
+					
 				</div>
    			</ui:define>
    	 	</ui:composition>
