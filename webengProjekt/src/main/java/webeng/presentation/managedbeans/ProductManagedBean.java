@@ -30,6 +30,9 @@ public class ProductManagedBean implements Serializable {
 	private ProductManager manager;
 	private List<Product> list;
 	private String search;
+	private String currentCategory;
+	
+
 	private List<Product> suggestions;
 
 	public List<Product> getSuggestions() {
@@ -69,6 +72,17 @@ public class ProductManagedBean implements Serializable {
 		return manager.getProduct(id);
 	}
 	
+	
+	public String getCurrentCategory() {
+		return currentCategory;
+	}
+	
+	public void setCurrentCategory(String category) {
+		this.currentCategory = category;
+	}
+	
+	
+	
 	public Product product(String s){
 		return manager.getProduct(Integer.parseInt(s));
 	}
@@ -79,6 +93,10 @@ public class ProductManagedBean implements Serializable {
 	
 	public List<String> getCategories() {
 		return manager.getAllCategories();
+	}
+	
+	public List<Product> getProductsByCategories() {
+		return manager.findProductsByCategory(currentCategory);
 	}
 	
 	public List<Product> getList() {
