@@ -55,6 +55,10 @@ input {
     margin: 5px 0;
 }
 
+#j_id_l input{
+    margin-right: 5px;
+}
+
 .Ueberschrift {
 	font-weight: bold;
 }
