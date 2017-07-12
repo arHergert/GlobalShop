@@ -60,7 +60,11 @@ public class ProductManager {
 	}
 	
 	public List<Product> findProductsByCategory(String category) {
-		return productDAO.findProductsByCategory(category);
+		if(category == null || category.equals("") || category.equalsIgnoreCase("all")) {
+			return getProducts();
+		} else {
+			return productDAO.findProductsByCategory(category);
+		}
 	}
 	
 	public List<Product> findProductsByCategory(String product, String category) {
