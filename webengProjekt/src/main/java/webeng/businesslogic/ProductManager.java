@@ -59,6 +59,10 @@ public class ProductManager {
 		return productDAO.findProducts(product);
 	}
 	
+	public List<Product> findProductsByCategory(String category) {
+		return productDAO.findProductsByCategory(category);
+	}
+	
 	public List<Product> findProductsByCategory(String product, String category) {
 		return productDAO.findProductsByCategory(product, category);
 	}
