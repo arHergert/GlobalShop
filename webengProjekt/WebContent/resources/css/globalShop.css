@@ -164,6 +164,12 @@ ul {
     margin-right: 10px;
 }
 
+.transaction td{
+    border-top: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
 @media screen and (max-width: 1300px) {
     #update {
         position: static;
