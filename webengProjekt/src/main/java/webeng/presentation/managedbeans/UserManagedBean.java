@@ -166,7 +166,8 @@ public class UserManagedBean implements Serializable {
 	
 	
 	public String update(){
-		return "";
+		manager.updateUser(user);
+		return "myAccount.xhtml";
 	}
 	
 	public String reset() {

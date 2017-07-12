@@ -12,17 +12,20 @@
  	 	<ui:composition template="../templates/userEntryTemplate.xhtml">
  	 		<ui:define name="content">
 		   		<div class ='divForm'>
-		   			<h:form>
+		   			<h:form class="update">
 		   				<h:outputLabel value="Name:" for="pw"/>
 		   	 			<h:inputText id="name" type="text" value="#{userBean.user.name}" /><br/>
-		   	 			
+		   	 			<br>
 		   	 			<h:outputLabel value="E-Mail:" for="email"/>
 		   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}">
 		   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
 		   	 			</h:inputText><br/>
-		   	 			
+		   	 			<br>
 		   	 			<h:outputLabel value="Passwort:" for="pw"/>
-		   	 			<h:inputSecret id="pw" value="#{userBean.user.password}"/><br/>
+		   	 			<h:inputSecret id="pw" value="#{userBean.user.password}">
+		   	 				<f:validator validatorId="webeng.validation.PasswordValidator"/>
+		   	 			</h:inputSecret>
+		   	 			
 		   	 			<h:commandButton id="update" value="Update" action="#{userBean.update}"/>
 		 			</h:form>
 		 			<h:messages styleClass="error message" showSummary="false" showDetail="true" />
@@ -34,12 +37,11 @@
 						<h:column>
 							<f:facet name="header">Produktbild</f:facet>
 							<img src="../resources/products/#{transaction.productId}.jpg" height="100" width="100"/> 
-							
 						</h:column>
 						
 						<h:column>
 							<f:facet name="header">Produkt</f:facet>
-							<h:link outcome="../pages/productview.xhtml" value="#{transaction.productId}">
+							<h:link outcome="../pages/productview.xhtml" value="#{productBean.product(transaction.productId).name}">
 								<f:param name="product_id" value="#{transaction.productId}"/>
 							</h:link> 
 						</h:column>
@@ -58,6 +60,8 @@
 							<f:facet name="header">Kaufdatum</f:facet>
 							<h:outputText value="#{transaction.date}"/>
 						</h:column>
+						
+						
 					</h:dataTable>
 		   		</div>
 		   	</ui:define>

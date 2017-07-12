@@ -147,8 +147,9 @@ public class UserManager {
 				return false;
 			}
 		}*/
-		
-		userDAO.updateUser(updateUser);
+		User user = updateUser;
+		user.setID(getUser(updateUser.getEmail()).getID());
+		userDAO.updateUser(user);
 		return true;
 	}
 	
