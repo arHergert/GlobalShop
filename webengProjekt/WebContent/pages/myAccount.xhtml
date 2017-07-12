@@ -20,13 +20,11 @@
 		   	 			<div>
 			   	 			<h:outputLabel value="E-Mail:" for="email"/>
 			   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}">
-			   	 				<f:validator validatorId="webeng.validation.EmailValidator"/>
 			   	 			</h:inputText>
 			   	 		</div>
 			   	 		<div>
 			   	 			<h:outputLabel value="Passwort:" for="pw"/>
 			   	 			<h:inputSecret id="pw" value="#{userBean.user.password}">
-			   	 				<f:validator validatorId="webeng.validation.PasswordValidator"/>
 			   	 			</h:inputSecret>
 		   	 			</div>
 		   	 			<div>
@@ -38,7 +36,7 @@
 		   		<div class ='divTransactions'>
 		   		
 		   			Gekaufte Produkte<br/>
-		   			<h:dataTable var="transaction" value="#{transactionBean.transactionsByUser}">
+		   			<h:dataTable class="transaction" var="transaction" value="#{transactionBean.transactionsByUser}">
 						<h:column>
 							<f:facet name="header">Produktbild</f:facet>
 							<img src="../resources/products/#{transaction.productId}.jpg" height="100" width="100"/> 
