@@ -164,6 +164,14 @@ ul {
     margin-right: 10px;
 }
 
+@media screen and (max-width: 1300px) {
+    #update {
+        position: static;
+        transform: translate(0, 0);
+        margin-bottom: 20px;
+    }
+}
+
 @media screen and (max-width: 850px) {
     .product-image img {
         margin-left: auto;
