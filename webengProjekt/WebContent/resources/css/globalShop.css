@@ -59,6 +59,10 @@ input {
     margin-right: 5px;
 }
 
+input[value="Ausloggen"] {
+    margin-left: 35%;
+}
+
 .Ueberschrift {
 	font-weight: bold;
 }

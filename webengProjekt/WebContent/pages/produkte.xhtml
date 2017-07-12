@@ -5,14 +5,20 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
+		<f:metadata>
+			<f:viewParam id="category" name="category" value="#{productBean.currentCategory}" required="true"/>
+		</f:metadata>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>GlobalShop.com</title>
   	</h:head>
  	 <h:body>
    		<ui:composition template="../templates/pageStructureTemplate.xhtml">
  	 		<ui:define name="content">
-   				Produkte
-   				<h:dataTable var="product" value="#{productBean.products}" class="products">
+ 	 		
+ 	 			
+ 	 		
+   				#{productBean.currentCategory}
+   				<h:dataTable var="product" value="#{productBean.productsByCategories}" class="products">
 				<h:column>
 					<img src="../resources/products/#{product.id}.jpg" height="200" width="200"/> 
 					<h:link outcome="../pages/productview.xhtml" value="#{product.name}  ">
