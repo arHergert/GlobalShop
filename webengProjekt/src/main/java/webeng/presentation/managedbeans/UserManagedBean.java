@@ -57,6 +57,7 @@ public class UserManagedBean implements Serializable {
 	public String login() {
 		
 		if(manager.loginSucceeded(user)) {
+			user.setID(manager.getUser(user.getEmail()).getID());
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
 			user.setSessionID(FacesContext.getCurrentInstance().getExternalContext().getSessionId(false));
