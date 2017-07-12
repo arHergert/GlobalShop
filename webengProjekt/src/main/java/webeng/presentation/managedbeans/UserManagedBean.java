@@ -30,7 +30,9 @@ public class UserManagedBean implements Serializable {
 	private Map<Integer, Integer> warenkorb;
 	private List<Integer> warenkorbKeys;
 	private float warenkorbSum;
+	private String currentViewedProduct;
 	
+
 	public UserManagedBean() {
 		
 	}
@@ -53,6 +55,16 @@ public class UserManagedBean implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public String getCurrentViewedProduct() {
+		return currentViewedProduct;
+	}
+
+	public void setCurrentViewedProduct(String currentViewedProduct) {
+		this.currentViewedProduct = currentViewedProduct;
+	}
+
+	
 	
 	public String login() {
 		
@@ -113,21 +125,23 @@ public class UserManagedBean implements Serializable {
 		
 	}
 	
-	public String cartAddItem(String key) {
-		int id = Integer.parseInt(key);
+	public String cartAddItem() {
+		
+		System.out.println("VIEW: " +currentViewedProduct);
+		int id = Integer.parseInt(currentViewedProduct);
 		ProductManager pm = new ProductManager();
 		if(warenkorb.containsKey(id)) {
-			warenkorb.replace(id, warenkorb.get(Integer.parseInt(key)), warenkorb.get(Integer.parseInt(key)+1));
+			warenkorb.replace(id, warenkorb.get(id), warenkorb.get(id+1));
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
 			warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
-			warenkorbSum += (pm.getProduct(Integer.parseInt(key)).getPrice()*warenkorb.get(key));
+			warenkorbSum += (pm.getProduct(id).getPrice()*warenkorb.get(id));
 		} else {
 			warenkorb.put(id, 1);
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
 			warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
-			warenkorbSum += (pm.getProduct(Integer.parseInt(key)).getPrice()*warenkorb.get(key));
+			warenkorbSum += (pm.getProduct(id).getPrice()*warenkorb.get(id));
 		}
-		return "";
+		return "produkte.xhtml";
 	}
 	
 	public String cartDeleteItem(Integer key) {
@@ -164,7 +178,7 @@ public class UserManagedBean implements Serializable {
 	     return warenkorbKeys;
 	}
 	
-	
+		
 	public String update(){
 		manager.updateUser(user);
 		return "myAccount.xhtml";
