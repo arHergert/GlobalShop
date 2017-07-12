@@ -145,3 +145,19 @@ ul {
     border-width: thin;
     margin-right: 5px;
 }
+
+.product-image img {
+    float: left;
+    display: inline-block;
+    border-style: solid;
+    border-color: grey;
+    border-width: thin;
+    margin-left: 25%;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 850px) {
+    .product-image img {
+        margin-left: auto;
+    }
+}
