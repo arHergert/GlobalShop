@@ -27,9 +27,9 @@ public class UserManagedBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private UserManager manager;
 	private User user;
-	private Map<Integer, Integer> warenkorb;
-	private List<Integer> warenkorbKeys;
-	private float warenkorbSum;
+	private static Map<Integer, Integer> warenkorb;
+	private static List<Integer> warenkorbKeys;
+	private static float warenkorbSum;
 	private String currentViewedProduct;
 	
 
@@ -115,6 +115,12 @@ public class UserManagedBean implements Serializable {
 	
 	public String cartUpdateItem(Integer id, Integer quantity) {
 		return "warenkorb.xhtml";
+	}
+	
+	public static void clearCart() {
+		warenkorb = new TreeMap<>();
+		warenkorbKeys = new ArrayList<Integer>();
+		warenkorbSum = 0;
 	}
 	
 	public String logout() {

@@ -51,6 +51,10 @@
 				
 				Summe: #{productBean.floorPrice(userBean.warenkorbSum)}€
 				
+				<h:panelGroup rendered="#{userBean.warenkorbSum != 0}">
+					<h:commandButton id="bestellen" value="Bestellen" action="#{transactionBean.addTransactions()}" />
+				</h:panelGroup>
+				
 				 </h:form>
 	   		</ui:define>
    		</ui:composition>

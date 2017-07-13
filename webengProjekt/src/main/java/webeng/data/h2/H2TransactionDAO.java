@@ -22,16 +22,15 @@ public class H2TransactionDAO implements TransactionDAO {
 	
 	@Override
 	public void addTransaction(Transaction transaction) {
-		String statement = "INSERT INTO Transaction (TransactionID, UserID, ProductID, Quantity, Subtotal, TransactionDate) VALUES (?,?,?,?,?,?)";
+		String statement = "INSERT INTO Transaction (TransactionID, UserID, ProductID, Quantity, Subtotal, TransactionDate) VALUES (default,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
-			stmt.setInt(1, transaction.getTransactionId());
-			stmt.setInt(2, transaction.getUserId());
-			stmt.setInt(3, transaction.getProductId());
-			stmt.setInt(4, transaction.getQuantity());
-			stmt.setFloat(5, transaction.getSubtotal());
-			stmt.setDate(6, transaction.getDate());
+			stmt.setInt(1, transaction.getUserId());
+			stmt.setInt(2, transaction.getProductId());
+			stmt.setInt(3, transaction.getQuantity());
+			stmt.setFloat(4, transaction.getSubtotal());
+			stmt.setDate(5, transaction.getDate());
 			stmt.execute();
 		} catch(SQLException e) {
 			e.printStackTrace();
