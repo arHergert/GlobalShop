@@ -181,6 +181,18 @@ ul {
     border-color: gray;
 }
 
+.add {
+    width: 200px;
+    border: outset;
+    border-width: thin;
+    background-color: white;
+}
+
+.add :hover {
+    border: inset;
+    border-width: thin;
+}
+
 @media screen and (max-width: 1300px) {
     #update {
         position: static;
