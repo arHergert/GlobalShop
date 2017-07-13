@@ -80,48 +80,6 @@ public class UserManagedBean implements Serializable {
 			return "login_failed";
 		}
 		
-//		User loginUser = manager.getUser(user.getEmail());
-		
-
-		
-		/*
-		
-		if (user.getEmail().equals("mock@up.de") && user.getPassword().equals("mockup123")){
-			user.setEmail("mock@up.de");
-			user.setID(0);
-			user.setName("Michael Mockup");
-			user.setPassword("mockup123");
-			user.setSessionID("4815162342");
-			//MockupUser anmelden und in Session speichern
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
-			
-			
-			ProductManager pm = new ProductManager();
-			warenkorb.put(pm.getProducts().get(1).getId(), 20);
-			warenkorb.put(pm.getProducts().get(2).getId(), 12);
-			warenkorb.put(pm.getProducts().get(3).getId(), 9);
-			
-			warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
-			
-			for(Map.Entry<Integer,Integer> entry : warenkorb.entrySet()) {
-				warenkorbSum += (pm.getProduct(entry.getKey()).getPrice() * entry.getValue() );
-			}
-			
-			/**
-			if(manager.loginSucceeded(user)) {
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
-			} else {
-				
-			}
-			*/
-		/*
-			return "login_success";
-		}else{
-			
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-Mail oder Passwort falsch. Bitte erneut versuchen!", null));
-			return "login_failed";
-		}*/
 		
 	}
 	
@@ -131,10 +89,11 @@ public class UserManagedBean implements Serializable {
 		int id = Integer.parseInt(currentViewedProduct);
 		ProductManager pm = new ProductManager();
 		if(warenkorb.containsKey(id)) {
-			warenkorb.replace(id, warenkorb.get(id), warenkorb.get(id+1));
+			warenkorb.replace(id, warenkorb.get(id), warenkorb.get(id)+1);
+			
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
 			warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
-			warenkorbSum += (pm.getProduct(id).getPrice()*warenkorb.get(id));
+			warenkorbSum += ( (pm.getProduct(id).getPrice()) );
 		} else {
 			warenkorb.put(id, 1);
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
@@ -146,9 +105,10 @@ public class UserManagedBean implements Serializable {
 	
 	public String cartDeleteItem(Integer key) {
 		ProductManager pm = new ProductManager();
-		warenkorbSum -= (pm.getProduct(key).getPrice()*warenkorb.get(key));
+		warenkorbSum -= ( (pm.getProduct(key).getPrice()) *(warenkorb.get(key)) );
 		warenkorb.remove(key);
 		warenkorbKeys = new ArrayList<Integer>(warenkorb.keySet());
+		//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().replace("warenkorb", warenkorb);
 		
 		return "warenkorb.xhtml";
 	}
