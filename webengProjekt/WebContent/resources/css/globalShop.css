@@ -170,6 +170,17 @@ ul {
     border-color: gray;
 }
 
+#j_id_15 {
+    margin-left: 200px;
+    width: 500px;
+}
+
+#j_id_15 td, #j_id_15 th{
+    border-bottom: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
 @media screen and (max-width: 1300px) {
     #update {
         position: static;

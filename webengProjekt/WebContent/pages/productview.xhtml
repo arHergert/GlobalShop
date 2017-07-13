@@ -31,7 +31,7 @@
 				<div class="product-addCart">
 					<h:panelGroup rendered="#{sessionScope.loggedUser != null}">
 						
-						<h:form>
+						<h:form class="add">
 							<h:commandLink id="add_cartItem" value="Zum Warenkorb hinzufügen" action="#{userBean.cartAddItem}"  />
 						</h:form>	
 					</h:panelGroup>
