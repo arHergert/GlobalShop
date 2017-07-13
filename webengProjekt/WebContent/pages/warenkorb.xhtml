@@ -22,7 +22,10 @@
 					    
 					    <h:column> 
 					    	<f:facet name="header">Produktname</f:facet>
-					        #{productBean.getProduct(key).name}
+					    	<h:link outcome="../pages/productview.xhtml" value="#{productBean.getProduct(key).name}">
+								<f:param name="product_id" value="#{productBean.getProduct(key).id}"/>
+							</h:link> 
+					        
 					    </h:column>
 					    
 					    <h:column>
