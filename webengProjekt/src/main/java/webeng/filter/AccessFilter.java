@@ -2,6 +2,7 @@ package webeng.filter;
 
 import java.io.IOException;
 
+import javax.faces.context.FacesContext;
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class UserAdminFilter
  */
-@WebFilter(filterName="/AccessFilter", urlPatterns={"/Verwaltung"}, dispatcherTypes={DispatcherType.REQUEST, DispatcherType.FORWARD})
+@WebFilter(filterName="/AccessFilter", urlPatterns={"/pages/warenkorb.xhtml", "/pages/myAccount.xhtml"}, dispatcherTypes={DispatcherType.REQUEST, DispatcherType.FORWARD})
 public class AccessFilter implements Filter {
 
 
@@ -43,8 +44,9 @@ public class AccessFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
 		
-		if( session != null){	
-
+		if( session.getAttribute("loggedUser") == null){	
+			HttpServletResponse resp = (HttpServletResponse)response;
+			resp.sendError(HttpServletResponse.SC_FORBIDDEN, "Nur eingeloggte User können auf diese Seite zugreifen!");
 		}else{
 			chain.doFilter(request, response);
 		}
