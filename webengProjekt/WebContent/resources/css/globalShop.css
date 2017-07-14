@@ -147,6 +147,13 @@ ul {
     text-align: center;
 }
 
+.products {
+    background-color: rgb(222, 222, 222);
+    border: solid;
+    border-width: thin;
+    border-color: grey;
+}
+
 #suchanfrage img {
     border-style: solid;
     border-color: grey;
@@ -179,6 +186,12 @@ ul {
     border-bottom: solid;
     border-width: thin;
     border-color: gray;
+    border-left: solid;
+    border-left-width: thick;
+    border-left-color: white;
+    border-right: solid;
+    border-right-width: thick;
+    border-right-color: white;
 }
 
 .add {
@@ -191,6 +204,15 @@ ul {
 .add :hover {
     border: inset;
     border-width: thin;
+}
+
+span a {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+    
 }
 
 @media screen and (max-width: 1300px) {
