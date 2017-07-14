@@ -85,23 +85,4 @@ public class ProductManager {
 		return productDAO.getAllCategories();
 	}
 	
-	
-	/**
-	 *
-	 * @return Liste mit drei unterschiedlichen Produkten
-	 */
-	public List<Product> getRandomProducts(){
-		List<Product> all = this.getProducts();
-		List<Product> r = new ArrayList<Product>();
-		Random rand = new Random();
-		int i = 0;
-		while(i<3) {
-			Product temp = all.get(rand.nextInt(all.size()));
-			if(!r.contains(temp)) {
-				r.add(temp);
-				i++;
-			}
-		}
-		return r;
-	}
 }

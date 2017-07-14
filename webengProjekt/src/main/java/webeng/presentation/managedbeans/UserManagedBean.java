@@ -31,6 +31,7 @@ public class UserManagedBean implements Serializable {
 	private static List<Integer> warenkorbKeys;
 	private static float warenkorbSum;
 	private String currentViewedProduct;
+	private String tempName, tempEmail, tempPassword;
 	
 
 	public UserManagedBean() {
@@ -40,7 +41,6 @@ public class UserManagedBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		manager = new UserManager();
-		
 		
 		//MockUp Daten initialisieren
 		user = new User();
@@ -70,10 +70,15 @@ public class UserManagedBean implements Serializable {
 		
 		if(manager.loginSucceeded(user)) {
 			user.setID(manager.getUser(user.getEmail()).getID());
+			user.setName(manager.getUser(user.getEmail()).getName());
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("warenkorb", warenkorb);
 			user.setSessionID(FacesContext.getCurrentInstance().getExternalContext().getSessionId(false));
 			manager.updateSessionId(user);
+			tempName = user.getName();
+			tempEmail = user.getEmail();
+			tempPassword = user.getPassword();
+			System.out.println("User logged: " + user.getID() + " " + tempName + " " + tempEmail + " " + tempPassword);
 			return "login_success";
 		} else {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-Mail oder Passwort falsch. Bitte erneut versuchen!", null));
@@ -144,14 +149,38 @@ public class UserManagedBean implements Serializable {
 	     return warenkorbKeys;
 	}
 	
-		
 	public String update(){
-		manager.updateUser(user);
+		System.out.println("Update User: " + user.getID() + " " +tempName + " " + tempEmail + " " + tempPassword);
+		manager.updateUser(new User(user.getID(), tempName, tempEmail, tempPassword, ""));
 		return "myAccount.xhtml";
 	}
 	
 	public String reset() {
 		return "register_reset";
+	}
+
+	public String getTempPassword() {
+		return tempPassword;
+	}
+
+	public void setTempPassword(String tempPassword) {
+		this.tempPassword = tempPassword;
+	}
+
+	public String getTempEmail() {
+		return tempEmail;
+	}
+
+	public void setTempEmail(String tempEmail) {
+		this.tempEmail = tempEmail;
+	}
+
+	public String getTempName() {
+		return tempName;
+	}
+
+	public void setTempName(String tempName) {
+		this.tempName = tempName;
 	}
 	
 	

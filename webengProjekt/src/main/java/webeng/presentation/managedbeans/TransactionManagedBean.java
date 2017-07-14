@@ -59,7 +59,6 @@ public class TransactionManagedBean implements Serializable {
 	public String addTransactions() {
 		User user = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
 		ProductManager pm = new ProductManager();
-		ProductManagedBean pBean = new ProductManagedBean();
 		Map<Integer, Integer> sessionMap = (Map<Integer, Integer>) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("warenkorb");
 		Map<Integer, Integer> warenkorb = new TreeMap<>();
 		warenkorb.putAll(sessionMap);

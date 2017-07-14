@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
@@ -107,16 +108,6 @@ public class ProductManagedBean implements Serializable {
 		this.list = list;
 	}
 	
-	public List<Product> getProducts() {
-		return  manager.getProducts();
-	
-	}
-	
-	
-	public List<Product> getRandomProducts(){
-		return manager.getRandomProducts();
-	
-	}
 	public String findProducts(){
 		
 		return "produkte.xhtml";
@@ -135,7 +126,25 @@ public class ProductManagedBean implements Serializable {
 		
 		Collections.sort(suggestions);
 		
-		
+	}
+	
+	/**
+	 *
+	 * @return Liste mit drei unterschiedlichen Produkten
+	 */
+	public List<Product> getRandomProducts(){
+		List<Product> all = manager.getProducts();
+		List<Product> r = new ArrayList<Product>();
+		Random rand = new Random();
+		int i = 0;
+		while(i<3) {
+			Product temp = all.get(rand.nextInt(all.size()));
+			if(!r.contains(temp)) {
+				r.add(temp);
+				i++;
+			}
+		}
+		return r;
 	}
 	
 }//end class ProductManagedBean

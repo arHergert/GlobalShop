@@ -15,17 +15,16 @@
 		   			<h:form>
 		   				<div>
 			   				<h:outputLabel value="Name:" for="pw"/>
-			   	 			<h:inputText id="name" type="text" value="#{userBean.user.name}" />
+			   	 			<h:inputText id="name" type="text" value="#{userBean.tempName}" />
 		   	 			</div>
 		   	 			<div>
 			   	 			<h:outputLabel value="E-Mail:" for="email"/>
-			   	 			<h:inputText id="email" type="email" value="#{userBean.user.email}">
+			   	 			<h:inputText id="email" type="email" value="#{userBean.tempEmail}">
 			   	 			</h:inputText>
 			   	 		</div>
 			   	 		<div>
 			   	 			<h:outputLabel value="Passwort:" for="pw"/>
-			   	 			<h:inputSecret id="pw" value="#{userBean.user.password}">
-			   	 			</h:inputSecret>
+			   	 			<h:inputSecret id="pw" value="#{userBean.tempPassword}"/>
 		   	 			</div>
 		   	 			<div>
 		   	 				<h:commandButton id="update" value="Update" action="#{userBean.update}"/>

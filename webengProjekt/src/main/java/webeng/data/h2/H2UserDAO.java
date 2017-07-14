@@ -157,13 +157,13 @@ public class H2UserDAO implements UserDAO {
 	@Override
 	public void updateUser(User user) {
 		
-		String statement = "UPDATE User SET Name = ?, Email = ?, Sessionid = ? WHERE Userid = " + user.getID();
+		String statement = "UPDATE User SET Name = ?, Email = ?, Passwort = ? WHERE Userid = " + user.getID();
 		
 		try {
 			PreparedStatement stmt = connection.prepareStatement(statement);
 			stmt.setString(1, user.getName());
 			stmt.setString(2, user.getEmail());
-			stmt.setString(3, user.getSessionID());
+			stmt.setString(3, user.getPassword());
 			stmt.execute();
 		} catch(SQLException e) {
 			e.printStackTrace();
